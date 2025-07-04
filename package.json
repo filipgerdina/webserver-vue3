@@ -1,0 +1,47 @@
+{
+  "name": "my-workspace",
+  "private": true,
+  "devDependencies": {
+    "@metronik/devextreme": "workspace:*",
+    "@module-federation/vite": "^1.5.1",
+    "@nx/vite": "^21.2.1",
+    "@originjs/vite-plugin-federation": "1.4.1",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@stadtlandnetz/rollup-plugin-postprocess": "^1.1.0",
+    "@types/node": "^24.0.2",
+    "@types/serve-static": "^1.15.7",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "bootstrap": "5.3.7",
+    "chokidar-cli": "^3.0.0",
+    "express": "^4.18.2",
+    "mitt": "^3.0.1",
+    "nx": "21.0.3",
+    "rollup-plugin-hypothetical": "^2.1.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "shared-components": "workspace:*",
+    "turbo": "^2.5.3",
+    "utility": "workspace:*",
+    "vite": "^4.5.14",
+    "vite-plugin-checker": "^0.9.3",
+    "vite-plugin-dts": "^4.5.3",
+    "vue": "3.4.0",
+    "vue-router": "^4.5.1",
+    "vue-tsc": "^2.2.10"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev"
+  },
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@microsoft/signalr": "^8.0.7",
+    "compression": "^1.8.0",
+    "devextreme": "~24.2.7",
+    "devextreme-vue": "~24.2.7",
+    "pinia": "^3.0.2",
+    "rollup-plugin-visualizer": "^6.0.3",
+    "serve-static": "^2.2.0",
+    "vite-plugin-inspect": "^11.0.1"
+  }
+}

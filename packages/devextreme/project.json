@@ -1,0 +1,25 @@
+{
+  "name": "devextreme",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{workspaceRoot}/dist/packages/devextreme"],
+      "options": {
+        "outputPath": "dist/packages/devextreme",
+        "configFile": "packages/devextreme/vite.config.js",
+        "tsConfig": "packages/devextreme/tsconfig.json"
+      },
+      "configurations": {
+        "watch": {
+          "watch": true,
+          "envFile": "./.env.watch"
+        },
+        "production": {
+          "env": {
+            "IS_WATCH": "false"
+          }
+        }
+      }
+    }
+  }
+}

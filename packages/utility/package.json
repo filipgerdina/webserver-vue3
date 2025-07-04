@@ -1,0 +1,27 @@
+{
+  "name": "utility",
+  "version": "0.0.1",
+  "module": "../../dist/packages/utility/index.es.js",
+  "types": "../../dist/packages/utility/utlity.es.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+"peerDependencies": {
+  "vue": "^3.4.0",
+  "vue-router": "^4.5.1",
+  "pinia": "^2.1.7",
+  "@microsoft/signalr": "^8.0.0",
+  "@metronik/devextreme": "workspace:*"
+},
+"devDependencies": {
+  "vue": "^3.4.0",
+  "vue-router": "^4.5.1",
+  "pinia": "^2.1.7",
+  "@microsoft/signalr": "^8.0.0",
+  "@metronik/devextreme": "workspace:*",
+  "mitt": "3.0.1",
+  "@nx/vite": "21.2.1",
+  "vue-tsc": "2.2.10"
+}
+
+}

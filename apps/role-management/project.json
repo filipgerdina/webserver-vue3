@@ -1,0 +1,26 @@
+{
+  "name": "role-management",
+  
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "apps/shell/public/remotes/role-management",
+        "configFile": "apps/role-management/vite.config.ts",
+        "tsConfig": "apps/role-management/tsconfig.app.json"
+      },
+      "configurations": {
+        "watch": {
+          "watch": true,
+          "envFile": "./.env.watch"
+        }
+      }
+    },    
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite preview --config apps/role-management/vite.config.ts"
+      }
+    }
+  }
+}

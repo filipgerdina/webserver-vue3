@@ -1,0 +1,32 @@
+{
+  "name": "shell",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite",
+        "cwd": "apps/shell"
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/apps/shell",
+        "configFile": "apps/shell/vite.config.ts",
+        "tsConfig": "apps/shell/tsconfig.app.json"
+      },
+      "configurations": {
+        "watch": {
+          "watch": true,
+          "envFile": "./.env.watch"
+        }
+      }
+    },    
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite preview --config apps/shell/vite.config.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "shared-components",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{workspaceRoot}/dist/packages/shared-components"],
+      "options": {
+        "outputPath": "dist/packages/shared-components",
+        "configFile": "packages/shared-components/vite.config.js",
+        "tsConfig": "packages/shared-components/tsconfig.json"
+      },
+      "configurations": {
+        "watch": {
+          "watch": true,
+          "envFile": "./.env.watch"
+        },
+        "production": {
+          "env": {
+            "IS_WATCH": "false"
+          }
+        }
+      }
+    }
+  }
+}

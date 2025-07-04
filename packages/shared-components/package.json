@@ -1,0 +1,23 @@
+{
+  "name": "shared-components",
+  "version": "0.0.1",
+  "module": "../../dist/packages/shared-components/index.es.js",
+  "types": "../../dist/packages/shared-components/sharedComponents.es.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.5.1",
+    "@metronik/devextreme": "workspace:*",
+    "utility": "workspace:*"	
+  },
+  "devDependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.5.1",
+    "@metronik/devextreme": "workspace:*",
+    "utility": "workspace:*",
+    "@nx/vite": "21.2.1",
+    "vue-tsc": "2.2.10"
+  }
+}

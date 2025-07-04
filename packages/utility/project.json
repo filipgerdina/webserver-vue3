@@ -1,0 +1,24 @@
+{
+  "name": "utility",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/packages/utility",
+        "configFile": "packages/utility/vite.config.js",
+        "tsConfig": "packages/utility/tsconfig.json"
+      },
+      "configurations": {
+        "watch": {
+          "watch": true,
+          "envFile": "./.env.watch"
+        },
+        "production": {
+          "env": {
+            "IS_WATCH": "false"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./",
+    "strict": false,
+    "noImplicitAny": false,
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "src/shims-vue.d.ts", "src/virtual__federation__.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

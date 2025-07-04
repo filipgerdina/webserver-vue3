@@ -1,0 +1,25 @@
+{
+  "name": "user-management",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "apps/shell/public/remotes/user-management",
+        "configFile": "apps/user-management/vite.config.ts",
+        "tsConfig": "apps/user-management/tsconfig.app.json"
+      },
+      "configurations": {
+        "watch": {
+          "watch": true,
+          "envFile": "./.env.watch"
+        }
+      }
+    },    
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite preview --config apps/user-management/vite.config.ts"
+      }
+    }
+  }
+}

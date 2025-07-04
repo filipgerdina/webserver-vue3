@@ -1,0 +1,125 @@
+// .vscode/tasks.json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Shell:Dev",
+      "type": "shell",
+      "command": "pnpm nx run shell:dev",
+      "problemMatcher": [],
+      "group": "dev"
+    },
+    {
+      "label": "Run Shell:Build",
+      "type": "shell",
+      "command": "pnpm nx run shell:build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Run Shell:Watch",
+      "type": "shell",
+      "command": "pnpm nx run shell:build:watch",
+      "problemMatcher": [],
+      "group": "watch"
+    },
+    {
+      "label": "Run Shell:Preview",
+      "type": "shell",
+      "command": "pnpm nx run shell:preview",
+      "problemMatcher": [],
+      "group": "preview"
+    },
+    {
+      "label": "Run User-Management:Dev",
+      "type": "shell",
+      "command": "pnpm nx run user-management:dev",
+      "problemMatcher": [],
+      "group": "dev"
+    },
+    {
+      "label": "Run User-Management:Build",
+      "type": "shell",
+      "command": "pnpm nx run user-management:build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Run User-Management:Watch",
+      "type": "shell",
+      "command": "pnpm nx run user-management:build:watch",
+      "problemMatcher": [],
+      "group": "watch"
+    },
+    {
+      "label": "Run User-Management:Preview",
+      "type": "shell",
+      "command": "pnpm nx run user-management:preview",
+      "problemMatcher": [],
+      "group": "preview"
+    },
+    {
+      "label": "Run Role-Management:Dev",
+      "type": "shell",
+      "command": "pnpm nx run role-management:dev",
+      "problemMatcher": [],
+      "group": "dev"
+    },
+    {
+      "label": "Run Role-Management:Build",
+      "type": "shell",
+      "command": "pnpm nx run role-management:build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Run Role-Management:Watch",
+      "type": "shell",
+      "command": "pnpm nx run role-management:build:watch",
+      "problemMatcher": [],
+      "group": "watch"
+    },
+    {
+      "label": "Run Role-Management:Preview",
+      "type": "shell",
+      "command": "pnpm nx run role-management:preview",
+      "problemMatcher": [],
+      "group": "preview"
+    },
+    {
+      "label": "Run Shared-Components:Watch",
+      "type": "shell",
+      "command": "pnpm nx run shared-components:build:watch",
+      "problemMatcher": [],
+      "group": "watch"
+    },
+    {
+      "label": "Run Shared-Components:Build",
+      "type": "shell",
+      "command": "pnpm nx run shared-components:build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Run Utility:Watch",
+      "type": "shell",
+      "command": "pnpm nx run utility:build:watch",
+      "problemMatcher": [],
+      "group": "watch"
+    },
+    {
+      "label": "Run Utility:Build",
+      "type": "shell",
+      "command": "pnpm nx run utility:build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Run DevExtreme:Build",
+      "type": "shell",
+      "command": "pnpm nx run devextreme:build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+  ]
+}

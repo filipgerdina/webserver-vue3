@@ -1,0 +1,20 @@
+{
+  "extends": "nx/presets/npm.json",
+  "npmScope": "your-org",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test"]
+      }
+    }
+  },
+  "projects": {
+    "shell": "apps/shell",
+    "user-management": "apps/user-management",
+    "roles-management": "apps/role-management",
+    "shared-components": "packages/shared-components",
+    "devextreme": "packages/devextreme",
+    "utility": "packages/utility"
+  }
+}
