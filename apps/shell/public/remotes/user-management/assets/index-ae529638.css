@@ -1,0 +1,108 @@
+
+.userMenu[data-v-7e969c95] {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.userSummary[data-v-7e969c95] {
+  display: flex;
+  min-width: 220px;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.userText[data-v-7e969c95] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+.userName[data-v-7e969c95] {
+  font-weight: 500;
+}
+.userRoles[data-v-7e969c95] {
+  font-size: 12px;
+  font-weight: 300;
+}
+.caretIcon[data-v-7e969c95] {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+.caretIcon.rotated[data-v-7e969c95] {
+  transform: rotate(180deg);
+}
+.userMenuDropdown[data-v-7e969c95] {
+  z-index: 1001;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 220px;
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.userMenuDropdown button[data-v-7e969c95] {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding: 6px 10px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+.userMenuDropdown button[data-v-7e969c95]:hover {
+  background-color: var(--primaryColorDark);
+  color: white;
+}
+.userMenuDropdown button i[data-v-7e969c95] {
+  margin-right: 8px;
+}
+/* profile-card.css */
+.profile-card[data-v-45b30a3f] {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+.profile-title[data-v-45b30a3f] {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+/* Re-use shared styles */
+/* profile-card.css */
+.profile-card[data-v-228fd932] {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+.profile-title[data-v-228fd932] {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-settings-wrapper[data-v-579d2aca] {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tab-content[data-v-579d2aca] {
+  margin-top: 1.5rem;
+}

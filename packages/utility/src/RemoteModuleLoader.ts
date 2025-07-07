@@ -1,32 +1,34 @@
-import {
-  __federation_method_getRemote as getRemote,
-  __federation_method_setRemote as setRemote,
-  __federation_method_unwrapDefault as unwrapModule,
-} from "virtual:__federation__";
+type RemoteOptions = {
+  remoteUrl: string;
+  remoteName: string;
+  exposedModule: string;
+};
 
-async function loadRemoteModule(pathToModule: string, remoteName:string, exposedModule: string) : Promise<any>{
-    let remoteModule;
-    try {
-        remoteModule = await getRemote(remoteName, exposedModule);
+const remoteCache = new Map<string, any>();
+const remoteInitState = new Set<string>(); // tracks initialized remotes
+
+import { init, loadRemote, registerRemotes } from '@module-federation/enhanced/runtime';
+export async function loadRemoteModule({
+  remoteUrl,
+  remoteName,
+  exposedModule,
+}: RemoteOptions): Promise<any> {
+  init({
+    name: "shell",
+    remotes: [
+    ]
+});
+  registerRemotes([
+    {
+        name: remoteName,
+        type: 'esm',
+        entry: remoteUrl.startsWith("http") ? remoteUrl : window.location.origin + '/remotes' + remoteUrl,
     }
-    catch (err){
-        setRemote(remoteName, {
-            url: pathToModule.startsWith("http") ? pathToModule : window.location.origin + '/remotes' + pathToModule,
-            format: 'esm',
-            from: 'vite',
-        } as any);
+  ]);
 
-        remoteModule = await getRemote(remoteName, exposedModule);
-    }
-    
-    const mod = await unwrapModule(remoteModule) as any;
+  let module = await loadRemote(exposedModule.replace(".", remoteName)).then((m: any) => {
+    return m
+  });
 
-    if (!mod) {
-        throw new Error("Remote store module does not export useRoleManagementStore");
-    }
-    else return mod;
-}
-
-export {
-    loadRemoteModule
+  return module;
 }

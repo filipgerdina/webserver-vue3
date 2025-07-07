@@ -7,7 +7,7 @@ import { VisualizationType } from 'utility';
 
 export const userGridConfig: DataGridConfig<GetUsersQueryDTOCoreListResponse> = {
   id: USERS_DATA_GRID,
-  title: "s:users",
+  title: "s:usersss",
   entity: userEntity,
   newFormTitle: "s:addUser",
   columns: [

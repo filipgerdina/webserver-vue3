@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import federation from '@originjs/vite-plugin-federation'
+import { federation } from '@module-federation/vite';
 
-export default defineConfig({
-  root: 'apps/user-management',
+const isDev = process.env.NODE_ENV === 'development';
+
+export default defineConfig(({ mode }) => {
+
+  console.log(`Running in ${mode} mode`);
+  let isDev = mode === 'development';
+  return {
+  root: isDev ? undefined : 'apps/user-management',
   base: '/remotes/user-management/',
   server: {
     port: 5175,
@@ -14,41 +20,40 @@ export default defineConfig({
     strictPort: true,
   },
   optimizeDeps: {
-    exclude: ['vue', 'vue-router', 'utility']
+    exclude: []
   },
   plugins: [
     vue(),
     federation({
-      remotes: {
-        dummy: '/this/is/never/accessed',
-      },
       name: 'user-management',
       filename: 'remoteEntry.js',
       exposes: {
-        './UsersManagement': './apps/user-management/src/pages/UsersManagement/UsersManagement.vue',
-        './UserMenu': './apps/user-management/src/components/UserMenu.vue',
-        './Profile': './apps/user-management/src/pages/Profile/MySettings.vue',
+        './UsersManagement': (isDev ? "." : "./apps/user-management") + '/src/pages/UsersManagement/UsersManagement.vue',
+        './UserMenu': (isDev ? "." : "./apps/user-management") + '/src/components/UserMenu.vue',
+        './Profile': (isDev ? "." : "./apps/user-management") + '/src/pages/Profile/MySettings.vue',
       },
+
       shared: {
         vue: {
-          generate: false,
+          singleton: true,
         },
         'vue-router': {
-          generate: false,
+          singleton: true,
         },
         pinia: {
-          generate: false
+          singleton: true,
+          
         },
-        utility: {
-          import: false,
-          generate: false,
+        "utility": {
+          singleton: true,
         },
-        'shared-components': {
-          generate: false,
+        "shared-components": {
+          singleton: true,
+          strictVersion: false,
         },
-        '@metronik/devextreme': {
-          generate: false,
-        },
+        "@metronik/devextreme": {
+          singleton: true,
+        }
       },
     })
   ],
@@ -56,12 +61,14 @@ export default defineConfig({
     emptyOutDir: false,
     target: 'esnext',
     minify: false,
-    sourcemap: true,
+    sourcemap: true, 
     //outDir: 'dist'
     outDir: '../../apps/shell/public/remotes/user-management',
     cssCodeSplit: true,
     rollupOptions: {
-      external: ['vue', 'utility'],
+      treeshake: true,
+      
     },
   },
+}
 })

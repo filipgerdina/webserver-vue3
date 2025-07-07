@@ -9,7 +9,10 @@ let module = settingsService.activeModules.value.find(m => m.moduleName ==  "rol
 if (!module) {
   throw new Error("Module is undefined or null");
 }
-let selectionFromDS = await loadRemoteModule(module.pathToModule!, module.moduleName!, "./rolesSelectionFromDataSource");
+let selectionFromDS = await loadRemoteModule({
+  remoteUrl: module.pathToModule!, 
+  remoteName: module.moduleName!, 
+  exposedModule: "./rolesSelectionFromDataSource"});
 export const rolesByUserGridConfig: DataGridConfig<GetRolesOfUserQueryDTOCoreListResponse> = {
   id: USER_ROLES_DATA_GRID,
   title: "s:userRoles",

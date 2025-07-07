@@ -1,10 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import federation from '@originjs/vite-plugin-federation'
+import { federation } from '@module-federation/vite';
 import fs from 'fs';
 import path from 'path';
-
-const isDev = process.env.NODE_ENV === 'development';
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === 'development';
@@ -21,7 +19,7 @@ export default defineConfig(({ mode }) => {
     strictPort: true,
   },
   optimizeDeps: {
-    include: ['vue', 'vue-router']
+    include: [],
   },
   plugins: [
     {
@@ -49,15 +47,34 @@ export default defineConfig(({ mode }) => {
         //this must be here, otherwise it does not share libraries properly
         dummy: '/this/is/never/accessed',
       },
-
       shared: {
-        vue: {},
-        'vue-router': {},
-        pinia: {},
-        utility: { import: true },
-        'shared-components': { import: true},
-        '@metronik/devextreme': { import: true},
-      }
+        vue: {
+          singleton: true,
+        },
+        'vue-router': {
+          singleton: true,
+        },
+        pinia: {
+          singleton: true,
+        },
+        "utility": {
+          singleton: true,
+        },
+        "shared-components": {
+          singleton: true,
+        },
+        "@metronik/devextreme": {
+          singleton: true,
+        }
+      },
+      // shared: {
+      //   vue: {},
+      //   'vue-router': {},
+      //   pinia: {},
+      //   utility: { import: true },
+      //   'shared-components': { import: true},
+      //   '@metronik/devextreme': { import: true},
+      // }
     }),
   ],
   css: {
@@ -69,13 +86,10 @@ export default defineConfig(({ mode }) => {
   },
   build: {
     emptyOutDir: true,
-    rollupOptions: {
-      external: ['vue'],
-    },
     sourcemap: true,
-    minify: false,
+    minify: true,
     target: 'esnext',
     outDir: '../../dist/apps/shell',
-    cssCodeSplit: true
+    cssCodeSplit: false,
   },
 }})

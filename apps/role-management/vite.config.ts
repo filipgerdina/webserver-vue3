@@ -33,7 +33,26 @@ optimizeDeps: {
         './RolesManagement': './apps/role-management/src/pages/RolesManagement/RolesManagement.vue',
         './rolesSelectionFromDataSource': './apps/role-management/src/components/rolesSelectionFromDataSource.ts',
       },
-      shared: ["vue", "vue-router", "pinia", "utility", "shared-components", "@metronik/devextreme"],
+      shared: {
+        vue: {
+          singleton: true,
+        },
+        'vue-router': {
+          singleton: true,
+        },
+        pinia: {
+          singleton: true,
+        },
+        "utility": {
+
+        },
+        "shared-components": {
+
+        },
+        "@metronik/devextreme": {
+
+        }
+      },
     })
   ],
   build: {

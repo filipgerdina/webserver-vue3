@@ -14,7 +14,7 @@ export default defineConfig({
       }),
   ].filter(Boolean),
   build: {
-    sourcemap: !process.env.IS_PRODUCTION,
+    sourcemap: true,
     minify: false,
     target: 'es2022',
     lib: {
@@ -25,7 +25,7 @@ export default defineConfig({
     },   
     emptyOutDir: !process.env.IS_WATCH,
     rollupOptions: {
-      external: ['vue', 'vue-router', 'virtual:__federation__', '@metronik/devextreme'],
+      external: ['vue', 'vue-router', '@metronik/devextreme', '@module-federation/sdk'],
     }
   }
 })

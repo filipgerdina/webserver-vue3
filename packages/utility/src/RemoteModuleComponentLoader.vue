@@ -16,7 +16,11 @@ const props = defineProps<{
 }>();
 
 const loadComponent = async () => {
-    remoteComponent.value = defineAsyncComponent(async () => await loadRemoteModule(props.pathToModule, props.remoteName, props.exposeModule));
+    remoteComponent.value = defineAsyncComponent(async () => await loadRemoteModule({
+      remoteUrl: props.pathToModule,
+      remoteName: props.remoteName,
+      exposedModule: props.exposeModule
+    }));
 };
 
 onMounted(loadComponent);
