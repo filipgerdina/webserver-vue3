@@ -59,7 +59,7 @@ export class DataSource<
 
   constructor(options: {
     name: string;
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+    method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
     cacheEnabled?: boolean;
     isRealDS?: boolean;
     baseUrl?: string;
@@ -70,7 +70,7 @@ export class DataSource<
     translatableResponseFields?: string[];
   }) {
     this.name = options.name;
-    this.method = options.method;
+    this.method = options.method ?? 'POST';
     this.skipAuth = options.skipAuth ?? false;
     this.cacheEnabled = options.cacheEnabled ?? false;
     this.isRealDS = options.isRealDS ?? false;

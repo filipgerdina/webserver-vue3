@@ -63,8 +63,6 @@ function translate(key: string, returnKeyIfNull = true): string {
 
 
 export const translationService = {
-  loadTranslations,
   translate,
-  translations,
   setLanguage,
 }

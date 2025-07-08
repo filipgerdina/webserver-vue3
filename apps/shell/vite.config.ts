@@ -69,11 +69,8 @@ export default defineConfig(({ mode }) => {
   },
   build: {
     emptyOutDir: true,
-    rollupOptions: {
-      external: ['vue'],
-    },
     sourcemap: true,
-    minify: false,
+    minify: true,
     target: 'esnext',
     outDir: '../../dist/apps/shell',
     cssCodeSplit: true

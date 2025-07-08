@@ -8,8 +8,7 @@
     @selected="onSelection"
     @view-changed="onViewChanged"
   />
-  <DxButton 
-  text="hlsdfhsl"/>
+
 </template>
 
 <script setup lang="ts">

@@ -1,10 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { federation } from '@module-federation/vite';
-import { visualizer } from 'rollup-plugin-visualizer';
-import path from 'path';
+import federation from '@originjs/vite-plugin-federation'
 
-console.log(__dirname)
 export default defineConfig({
   root: 'apps/role-management',
   base: '/remotes/role-management/',
@@ -16,24 +13,42 @@ export default defineConfig({
     port: 4174,
     strictPort: true,
   },
-optimizeDeps: {
-  exclude: ['vue', 'vue-router', '@metronik/devextreme', 'utility', "virtual:__federation__"]
-},
-  cacheDir: "./.cache",
+  optimizeDeps: {
+    exclude: ['vue', 'vue-router', 'utility']
+  },
   plugins: [
     vue(),
     federation({
       // remotes: {
       //   dummy: '/this/is/never/accessed',
       // },
-      
       name: 'role-management',
       filename: 'remoteEntry.js',
       exposes: {
         './RolesManagement': './apps/role-management/src/pages/RolesManagement/RolesManagement.vue',
         './rolesSelectionFromDataSource': './apps/role-management/src/components/rolesSelectionFromDataSource.ts',
       },
-      shared: ["vue", "vue-router", "pinia", "utility", "shared-components", "@metronik/devextreme"],
+      shared: {
+        vue: {
+          generate: false,
+        },
+        'vue-router': {
+          generate: false,
+        },
+        pinia: {
+          generate: false
+        },
+        utility: {
+          import: false,
+          generate: false,
+        },
+        'shared-components': {
+          generate: false,
+        },
+        '@metronik/devextreme': {
+          generate: false,
+        },
+      },
     })
   ],
   build: {
@@ -44,7 +59,7 @@ optimizeDeps: {
     outDir: '../../apps/shell/public/remotes/role-management',
     cssCodeSplit: true,
     rollupOptions: {
-      external: [ 'virtual:__federation__'],
-    }
+      external: ['vue', 'virtual:__federation__'],
+    },
   },
 })

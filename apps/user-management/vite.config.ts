@@ -19,9 +19,6 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-      remotes: {
-        dummy: '/this/is/never/accessed',
-      },
       name: 'user-management',
       filename: 'remoteEntry.js',
       exposes: {
@@ -40,7 +37,6 @@ export default defineConfig({
           generate: false
         },
         utility: {
-          import: false,
           generate: false,
         },
         'shared-components': {
@@ -61,7 +57,7 @@ export default defineConfig({
     outDir: '../../apps/shell/public/remotes/user-management',
     cssCodeSplit: true,
     rollupOptions: {
-      external: ['vue', 'utility'],
+      external: ['virtual:__federation__'],
     },
   },
 })

@@ -15,7 +15,7 @@ export default defineConfig({
   ].filter(Boolean),
   build: {
     sourcemap: !process.env.IS_PRODUCTION,
-    minify: false,
+    minify: true,
     target: 'es2022',
     lib: {
       entry: path.resolve(__dirname, 'index.ts'),
@@ -26,6 +26,7 @@ export default defineConfig({
     emptyOutDir: !process.env.IS_WATCH,
     rollupOptions: {
       external: ['vue', 'vue-router', 'virtual:__federation__', '@metronik/devextreme'],
-    }
+    },
+    cssCodeSplit: true,
   }
 })

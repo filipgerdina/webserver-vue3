@@ -29,7 +29,7 @@ watch(
     <PageHeader :icon="pageIcon" :title="pageName" />
     <div class="page-content">
       <RemoteModuleComponentLoader
-        :key="`${remoteModule}-${pathToModule}-${pageComponent}`"
+        :key="`${remoteModule}-${pageComponent}`"
         :pathToModule="pathToModule"
         :remoteName="remoteModule"
         :exposeModule="pageComponent"

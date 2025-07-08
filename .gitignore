@@ -1,4 +1,68 @@
-node_modules
-dist
-.cache
-.nx
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+.pnp/
+.pnp.js
+
+# Build output
+dist/
+build/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# Cache and temp
+.cache/
+.nx/
+.tmp/
+temp/
+*.tmp
+apps/*/apps/
+
+
+
+# Federated modules & remote assets (optional, if generated)
+public/remotes/**/assets/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional: NX project build artifacts
+apps/*/dist/
+libs/*/dist/
+
+# Optional: Output from Swagger/Typegen tools
+swagger.json
+types/generated/
+
+# Optional: lock for route guards
+.lock
+
+# Optional: if you use local credentials or simulator data
+secrets/
+*.local.*
+
+# Optional: IDE test coverage
+coverage-final.json
+lcov.info
+
+__mf__temp
+
+/apps/shell/public/remotes/
