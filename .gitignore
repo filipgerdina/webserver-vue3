@@ -66,3 +66,5 @@ lcov.info
 __mf__temp
 
 /apps/shell/public/remotes/
+apps/*/apps/
+tsconfig.app.tsbuildinfo
