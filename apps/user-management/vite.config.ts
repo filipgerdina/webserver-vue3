@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
     strictPort: true,
   },
   optimizeDeps: {
-    exclude: []
+    exclude: ["@metronik/devextreme"]
   },
   plugins: [
     vue(),
@@ -52,7 +52,6 @@ export default defineConfig(({ mode }) => {
           strictVersion: false,
         },
         "@metronik/devextreme": {
-          singleton: true,
         }
       },
     })
@@ -65,10 +64,6 @@ export default defineConfig(({ mode }) => {
     //outDir: 'dist'
     outDir: '../../apps/shell/public/remotes/user-management',
     cssCodeSplit: true,
-    rollupOptions: {
-      treeshake: true,
-      
-    },
   },
 }
 })

@@ -1,25 +1,25 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import federation from '@originjs/vite-plugin-federation'
+import { federation } from '@module-federation/vite';
 
-import fs from 'fs';
-import path from 'path';
-function filterSharedSourcemaps(sharedLibs: string[]) {
-  return {
-    name: 'filter-shared-sourcemaps',
-    generateBundle(_, bundle) {
-      for (const [fileName, chunk] of Object.entries(bundle)) {
-        if (fileName.endsWith('.map')) {
-          const shouldDelete = sharedLibs.some(lib => fileName.includes(lib));
-          if (shouldDelete) {
-            delete bundle[fileName]; // Prevent writing the .map file
-            console.log(`⏩ Skipped sourcemap for shared: ${fileName}`);
-          }
-        }
-      }
-    }
-  };
-}
+// import fs from 'fs';
+// import path from 'path';
+// function filterSharedSourcemaps(sharedLibs: string[]) {
+//   return {
+//     name: 'filter-shared-sourcemaps',
+//     generateBundle(_, bundle) {
+//       for (const [fileName, chunk] of Object.entries(bundle)) {
+//         if (fileName.endsWith('.map')) {
+//           const shouldDelete = sharedLibs.some(lib => fileName.includes(lib));
+//           if (shouldDelete) {
+//             delete bundle[fileName]; // Prevent writing the .map file
+//             console.log(`⏩ Skipped sourcemap for shared: ${fileName}`);
+//           }
+//         }
+//       }
+//     }
+//   };
+// }
 
 export default defineConfig({
   root: 'apps/role-management',
@@ -32,15 +32,9 @@ export default defineConfig({
     port: 4174,
     strictPort: true,
   },
-  optimizeDeps: {
-    exclude: ['vue', 'vue-router', 'utility']
-  },
   plugins: [
     vue(),
     federation({
-      // remotes: {
-      //   dummy: '/this/is/never/accessed',
-      // },
       name: 'role-management',
       filename: 'remoteEntry.js',
       exposes: {
@@ -56,15 +50,16 @@ export default defineConfig({
         },
         pinia: {
           singleton: true,
+          
         },
         "utility": {
-
+          singleton: true,
         },
         "shared-components": {
-
+          singleton: true,
+          strictVersion: false,
         },
         "@metronik/devextreme": {
-
         }
       },
     })
@@ -73,11 +68,9 @@ export default defineConfig({
     emptyOutDir: true,
     target: 'esnext',
     minify: false,
-    sourcemap: true,
-    outDir: 'dist',
+    sourcemap: true, 
+    //outDir: 'dist'
+    outDir: '../../apps/shell/public/remotes/role-management',
     cssCodeSplit: true,
-    rollupOptions: {
-      external: ['vue', 'virtual:__federation__'],
-    },
   },
 })

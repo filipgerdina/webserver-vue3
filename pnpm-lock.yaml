@@ -269,10 +269,6 @@ importers:
         version: 2.2.10(typescript@5.8.2)
 
   packages/utility:
-    dependencies:
-      '@module-federation/sdk':
-        specifier: ^0.8.12
-        version: 0.8.12
     devDependencies:
       '@metronik/devextreme':
         specifier: workspace:*
@@ -284,6 +280,9 @@ importers:
         specifier: 0.16.0
         version: 0.16.0(@rspack/core@1.4.3(@swc/helpers@0.5.17))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.2)(vue-tsc@2.2.10(typescript@5.8.2))
       '@module-federation/runtime':
+        specifier: 0.16.0
+        version: 0.16.0
+      '@module-federation/sdk':
         specifier: 0.16.0
         version: 0.16.0
       '@nx/vite':

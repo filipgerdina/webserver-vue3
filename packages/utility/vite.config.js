@@ -25,7 +25,7 @@ export default defineConfig({
     },   
     emptyOutDir: !process.env.IS_WATCH,
     rollupOptions: {
-      external: ['vue', 'vue-router', '@metronik/devextreme', '@module-federation/sdk'],
+      external: ['vue', 'vue-router', '@metronik/devextreme'],
     }
   }
 })
