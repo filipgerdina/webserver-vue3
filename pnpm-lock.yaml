@@ -11,18 +11,27 @@ importers:
       '@fortawesome/fontawesome-free':
         specifier: ^6.7.2
         version: 6.7.2
+      '@gef-modules/role-management':
+        specifier: 0.0.4
+        version: 0.0.4(typescript@5.8.2)
       '@microsoft/signalr':
         specifier: ^8.0.7
         version: 8.0.7
       compression:
         specifier: ^1.8.0
         version: 1.8.0
+      config:
+        specifier: ^4.0.0
+        version: 4.0.0
       devextreme:
         specifier: ~24.2.7
         version: 24.2.7
       devextreme-vue:
         specifier: ~24.2.7
         version: 24.2.7(devextreme@24.2.7)(vue@3.4.0(typescript@5.8.2))
+      dotenv:
+        specifier: 17.1.0
+        version: 17.1.0
       pinia:
         specifier: ^3.0.2
         version: 3.0.2(typescript@5.8.2)(vue@3.4.0(typescript@5.8.2))
@@ -142,6 +151,9 @@ importers:
 
   apps/shell:
     dependencies:
+      '@gef-modules/role-management':
+        specifier: 1.0.16
+        version: 1.0.16(typescript@5.8.2)
       '@metronik/devextreme':
         specifier: workspace:*
         version: link:../../packages/devextreme
@@ -252,6 +264,9 @@ importers:
       '@nx/vite':
         specifier: 21.2.1
         version: 21.2.1(@babel/traverse@7.27.7)(nx@21.2.1)(typescript@5.8.2)(vite@7.0.0(@types/node@24.0.2)(yaml@2.8.0))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))
+      dotenv:
+        specifier: 17.1.0
+        version: 17.1.0
       mitt:
         specifier: 3.0.1
         version: 3.0.1
@@ -1111,6 +1126,12 @@ packages:
     resolution: {integrity: sha512-JUOtgFW6k9u4Y+xeIaEiLr3+cjoUPiAuLXoyKOJSia6Duzb7pq+A76P9ZdPDoAoxHdHzq6gE9/jKBGXlZT8FbA==}
     engines: {node: '>=6'}
 
+  '@gef-modules/role-management@0.0.4':
+    resolution: {integrity: sha512-SYn8G1SeQp1Dm/dNig/6ryZNxKgQsHXI4ejWh9GxKLswi2axJ2CdiBewbltRGLas3SM++8+scXOz0TwAgucJoA==}
+
+  '@gef-modules/role-management@1.0.16':
+    resolution: {integrity: sha512-///xNNWcIj7OlmcjDrWRwAvr/Brz1SBsqQ0d2kZLpOUZrRkrvwKZx5ymu7SX6he6equCO5RPA8M5Qvroi4Avqg==}
+
   '@jest/schemas@29.6.3':
     resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -1924,6 +1945,10 @@ packages:
   confbox@0.2.2:
     resolution: {integrity: sha512-1NB+BKqhtNipMsov4xI/NnhCKp9XG9NamYp5PVm9klAT0fsrNPjaFICsCFhNhwZJKNh7zB/3q8qXz0E9oaMNtQ==}
 
+  config@4.0.0:
+    resolution: {integrity: sha512-zOzfDfcpaBUMRvTH+pbj111Gfb+1BMvCy9EcE5ckuugfAcks3FIQMyt8TRA30dhuGnZNBxfbPBUKtuM03ih/nA==}
+    engines: {node: '>= 20.0.0'}
+
   content-disposition@0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
     engines: {node: '>= 0.6'}
@@ -2075,6 +2100,10 @@ packages:
 
   dotenv@16.4.7:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
+
+  dotenv@17.1.0:
+    resolution: {integrity: sha512-tG9VUTJTuju6GcXgbdsOuRhupE8cb4mRgY5JLRCh4MtGoVo3/gfGUtOMwmProM6d0ba2mCFvv+WrpYJV6qgJXQ==}
     engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
@@ -4578,6 +4607,20 @@ snapshots:
 
   '@fortawesome/fontawesome-free@6.7.2': {}
 
+  '@gef-modules/role-management@0.0.4(typescript@5.8.2)':
+    dependencies:
+      pinia: 3.0.2(typescript@5.8.2)(vue@3.4.0(typescript@5.8.2))
+      vue: 3.4.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - typescript
+
+  '@gef-modules/role-management@1.0.16(typescript@5.8.2)':
+    dependencies:
+      pinia: 3.0.2(typescript@5.8.2)(vue@3.4.0(typescript@5.8.2))
+      vue: 3.4.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - typescript
+
   '@jest/schemas@29.6.3':
     dependencies:
       '@sinclair/typebox': 0.27.8
@@ -5596,6 +5639,10 @@ snapshots:
 
   confbox@0.2.2: {}
 
+  config@4.0.0:
+    dependencies:
+      json5: 2.2.3
+
   content-disposition@0.5.4:
     dependencies:
       safe-buffer: 5.2.1
@@ -5727,6 +5774,8 @@ snapshots:
       dotenv: 16.4.7
 
   dotenv@16.4.7: {}
+
+  dotenv@17.1.0: {}
 
   dunder-proto@1.0.1:
     dependencies:

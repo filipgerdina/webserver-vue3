@@ -14,7 +14,7 @@ export default defineConfig({
       }),
   ].filter(Boolean),
   build: {
-    sourcemap: !process.env.IS_PRODUCTION,
+    sourcemap: true,
     minify: true,
     target: 'es2022',
     lib: {

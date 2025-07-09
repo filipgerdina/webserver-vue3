@@ -2,6 +2,25 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 
+import fs from 'fs';
+import path from 'path';
+function filterSharedSourcemaps(sharedLibs: string[]) {
+  return {
+    name: 'filter-shared-sourcemaps',
+    generateBundle(_, bundle) {
+      for (const [fileName, chunk] of Object.entries(bundle)) {
+        if (fileName.endsWith('.map')) {
+          const shouldDelete = sharedLibs.some(lib => fileName.includes(lib));
+          if (shouldDelete) {
+            delete bundle[fileName]; // Prevent writing the .map file
+            console.log(`⏩ Skipped sourcemap for shared: ${fileName}`);
+          }
+        }
+      }
+    }
+  };
+}
+
 export default defineConfig({
   root: 'apps/role-management',
   base: '/remotes/role-management/',
@@ -43,20 +62,23 @@ export default defineConfig({
           generate: false,
         },
         'shared-components': {
+          import: false,
           generate: false,
         },
         '@metronik/devextreme': {
+          import: false,
           generate: false,
         },
       },
-    })
+    }),
+    filterSharedSourcemaps(['vue', 'vue-router', 'pinia', 'utility', 'shared-components', '@metronik/devextreme']),
   ],
   build: {
     emptyOutDir: true,
     target: 'esnext',
     minify: false,
     sourcemap: true,
-    outDir: '../../apps/shell/public/remotes/role-management',
+    outDir: 'dist',
     cssCodeSplit: true,
     rollupOptions: {
       external: ['vue', 'virtual:__federation__'],

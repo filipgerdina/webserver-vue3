@@ -7,7 +7,7 @@ import { GetPagesQueryDTOCoreListResponseFields, pagesDataSource, VisualizationT
 
 export const rolesGridConfig: DataGridConfig<GetRolesQueryDTOCoreListResponse> = {
   id: ROLES_DATA_GRID,
-  title: "s:roles",
+  title: "s:rolessss",
   newFormTitle: "s:newRole",
   entity: rolesEntity,
   columns: [

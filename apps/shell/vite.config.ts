@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
     strictPort: true,
   },
   optimizeDeps: {
-    include: ['vue', 'vue-router']
+    include: ['vue', 'vue-router', 'utility']
   },
   plugins: [
     {
@@ -54,7 +54,7 @@ export default defineConfig(({ mode }) => {
         vue: {},
         'vue-router': {},
         pinia: {},
-        utility: { import: true },
+        utility: { },
         'shared-components': { import: true},
         '@metronik/devextreme': { import: true},
       }
@@ -70,7 +70,7 @@ export default defineConfig(({ mode }) => {
   build: {
     emptyOutDir: true,
     sourcemap: true,
-    minify: true,
+    minify: false,
     target: 'esnext',
     outDir: '../../dist/apps/shell',
     cssCodeSplit: true

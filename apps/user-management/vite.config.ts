@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 
 export default defineConfig({
-  root: 'apps/user-management/v1',
+  root: 'apps/user-management',
   base: '/remotes/user-management/',
   server: {
     port: 5175,
