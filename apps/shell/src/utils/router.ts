@@ -1,5 +1,4 @@
-import { authService, routingService } from 'utility';
-import { pagesDataSource } from './dataSources';
+import { authService, routingService, pagesDataSource } from 'utility';
 
 const router = routingService.router;
 

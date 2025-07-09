@@ -11,7 +11,7 @@
       :key-expr="'id'"
       width="auto"
       height="auto"
-      :no-data-text="translationService.translate('s:dsfasd')"
+      :no-data-text="translationService.translate('s:noData')"
       @selection-changed="onSelectionChanged"
       @context-menu-preparing="onCtxPreparing"
     >

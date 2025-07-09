@@ -9,7 +9,7 @@ export class EndPointAction {
         this.dataSource = new DataSource({
             name: name,
             method: method as any,
-            isRealDS: true
+            processEndPointAction: true
         });
     }
 }

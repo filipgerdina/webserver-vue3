@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["src", "src/vue-shim.d.ts", "index.ts", "src/virtual__federation__.d.ts"],
+  "include": ["src", "../../vue-shim.d.ts", "index.ts", "../../virtual__federation__.d.ts"],
   "exclude": ["dist", "node_modules"]
 }

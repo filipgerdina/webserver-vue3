@@ -5,7 +5,7 @@
     "build": {
       "executor": "@nx/vite:build",
       "options": {
-        "outputPath": "apps/shell/public/remotes/role-management",
+        "outputPath": "apps/role-management/dist",
         "configFile": "apps/role-management/vite.config.ts",
         "tsConfig": "apps/role-management/tsconfig.app.json"
       },

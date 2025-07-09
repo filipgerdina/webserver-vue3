@@ -74,7 +74,7 @@ export async function tryFetch<TResponse = any>(
     if (!response.ok) {
       if (response.status === 401) {
         throw new Error('Unauthorized access: 401')
-      }
+      } 
 
       const errorText = await response.json()
       throw new Error(`${errorText.message}`)

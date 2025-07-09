@@ -24,5 +24,6 @@ export default defineConfig({
       fileName: (format, entryName) => `${entryName}.${format}.js`,
     },   
     emptyOutDir: !process.env.IS_WATCH,
+    cssCodeSplit: true,
   }
 })

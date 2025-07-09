@@ -1,7 +1,7 @@
 import { GetRolesOfUserQueryDTOCoreListResponse, GetRolesOfUserQueryDTOCoreListResponseFields } from '../../../../users';
 import { DataGridConfig } from 'shared-components'
 
-import { userEntity } from '../../userManagement.entities';
+import { userRolesEntity } from '../../userManagement.entities';
 import { USER_ROLES_DATA_GRID } from '../../componentIds';
 import { loadRemoteModule, settingsService, VisualizationType } from 'utility';
 
@@ -17,7 +17,7 @@ export const rolesByUserGridConfig: DataGridConfig<GetRolesOfUserQueryDTOCoreLis
   id: USER_ROLES_DATA_GRID,
   title: "s:userRoles",
   newFormTitle: "s:assignRoleToUser",
-  entity: userEntity.subEntities.userRoles,
+  entity: userRolesEntity,
   columns: [
     {
       field: GetRolesOfUserQueryDTOCoreListResponseFields.id,

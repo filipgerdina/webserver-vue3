@@ -44,6 +44,7 @@ export class DataSource<
   public cacheEnabled: boolean;
   public dataSourceToRemoveFromCache?: string;
   private isRealDS: boolean = false;
+  private processEndPointAction: boolean = false;
   private baseUrl: string = 'https://localhost:7241/';
   private skipAuth: boolean = false;
 
@@ -59,9 +60,10 @@ export class DataSource<
 
   constructor(options: {
     name: string;
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+    method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
     cacheEnabled?: boolean;
     isRealDS?: boolean;
+    processEndPointAction?: boolean;
     baseUrl?: string;
     skipAuth?: boolean;
     getUrlParams?: () => TUrl;
@@ -70,10 +72,11 @@ export class DataSource<
     translatableResponseFields?: string[];
   }) {
     this.name = options.name;
-    this.method = options.method;
+    this.method = options.method ?? 'POST';
     this.skipAuth = options.skipAuth ?? false;
     this.cacheEnabled = options.cacheEnabled ?? false;
     this.isRealDS = options.isRealDS ?? false;
+    this.processEndPointAction = options.processEndPointAction ?? false;
     this.baseUrl = options.baseUrl ?? this.baseUrl;
     this.getUrlParams = options.getUrlParams;
     this.getQueryParams = options.getQueryParams;
@@ -133,12 +136,13 @@ export class DataSource<
 
       body = this.bodyParams;
     } else {
-      url += 'utl';
+      url += this.processEndPointAction ? 'utl/processEndPointAction' :'utl/resolveDataSource';
       body = {
-        name: this.name,
+        name: (this.processEndPointAction ? this.baseUrl : "") + this.name,
         urlParams: this.getUrlParams?.() ?? null,
         queryParams: this.getQueryParams?.() ?? null,
-        bodyParams: this.getBodyParams?.() ?? null
+        bodyParams: this.getBodyParams?.() ?? null,
+        ...(this.processEndPointAction ? { method: this.method } : {})
       };
     }
 
@@ -163,3 +167,6 @@ export class DataSource<
 }
 
 export type QueryDataSource<Q extends { [key: string]: any; }, R> = DataSource<{}, Q, null, R>;
+export type QueryBodyDataSource<Q extends { [key: string]: any; }, B, R> = DataSource<{}, Q, B, R>;
+export type UrlDataSource<U extends { [key: string]: any; }, R> = DataSource<U, {}, null, R>;
+export type UrlBodyDataSource<U extends { [key: string]: any; }, R> = DataSource<U, {}, null, R>;
