@@ -1,12 +1,14 @@
 {
   "name": "@gef-modules/role-management",
-  "version": "1.0.16",
-  "publishConfig": { "registry": "http://localhost:4873/" },
+  "version": "2.1.2-dev.14",
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
-    "files": [
+  "files": [
     "dist"
   ],
   "dependencies": {
@@ -15,7 +17,6 @@
   },
   "devDependencies": {
     "vite-plugin-checker": "^0.9.3",
-    "@module-federation/vite": "1.5.1",
     "@types/node": "^24.0.2",
     "@nx/vite": "21.2.1",
     "vue-tsc": "2.2.10",

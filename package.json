@@ -3,8 +3,7 @@
   "private": true,
   "devDependencies": {
     "@metronik/devextreme": "workspace:*",
-    "@module-federation/vite": "^1.5.1",
-    "@nx/vite": "^21.2.1",
+    "@nx/vite": "21.2.2",
     "@originjs/vite-plugin-federation": "1.4.1",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@stadtlandnetz/rollup-plugin-postprocess": "^1.1.0",
@@ -15,7 +14,7 @@
     "chokidar-cli": "^3.0.0",
     "express": "^4.18.2",
     "mitt": "^3.0.1",
-    "nx": "21.0.3",
+    "nx": "21.2.2",
     "rollup-plugin-hypothetical": "^2.1.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "shared-components": "workspace:*",
@@ -46,6 +45,7 @@
     "devextreme-vue": "~24.2.7",
     "dotenv": "17.1.0",
     "pinia": "^3.0.2",
+    "rollup": "^3.29.5",
     "rollup-plugin-visualizer": "^6.0.3",
     "serve-static": "^2.2.0",
     "vite-plugin-inspect": "^11.0.1"

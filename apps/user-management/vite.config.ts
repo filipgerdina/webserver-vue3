@@ -25,6 +25,9 @@ export default defineConfig(({ mode }) => {
   plugins: [
     vue(),
     federation({
+      remotes: {
+        dummy: "ke tk neki"
+      },
       name: 'user-management',
       filename: 'remoteEntry.js',
       exposes: {
@@ -57,7 +60,7 @@ export default defineConfig(({ mode }) => {
     })
   ],
   build: {
-    emptyOutDir: false,
+    emptyOutDir: true,
     target: 'esnext',
     minify: false,
     sourcemap: true, 
