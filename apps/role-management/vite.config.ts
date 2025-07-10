@@ -22,8 +22,8 @@ function filterSharedSourcemaps(sharedLibs: string[]) {
 }
 
 export default defineConfig({
-  root: 'apps/role-management',
-  base: '/remotes/role-management/',
+  //root: 'apps/role-management',
+  // base: '/remotes/role-management/',
   server: {
     port: 5174,
     strictPort: true
