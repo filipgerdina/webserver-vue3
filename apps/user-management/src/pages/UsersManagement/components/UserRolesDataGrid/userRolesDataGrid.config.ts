@@ -1,11 +1,11 @@
-import { GetRolesOfUserQueryDTOCoreListResponse, GetRolesOfUserQueryDTOCoreListResponseFields } from '../../../../users';
+import { GetRolesOfUserQueryDTOCoreListResponse, GetRolesOfUserQueryDTOCoreListResponseFields } from '../../../../../users';
 import { DataGridConfig } from 'shared-components'
 
-import { userRolesEntity } from '../../userManagement.entities';
+import { userRolesEntity } from '../../entities';
 import { USER_ROLES_DATA_GRID } from '../../componentIds';
 import { loadRemoteModule, settingsService, VisualizationType } from 'utility';
 
-let module = settingsService.activeModules.value.find(m => m.moduleName ==  "rolesManagement");
+let module = settingsService.activeModules.value.find(m => m.moduleName ==  "roleManagement");
 if (!module) {
   throw new Error("Module is undefined or null");
 }

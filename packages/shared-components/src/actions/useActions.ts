@@ -92,7 +92,13 @@ export function useActions(
           data: {
             actionCode: selectedAction.value?.actionCode,
             recordTypeCode: "fsdfds",
-            extraParamsFormValues: formData
+            extraParamsFormValues: formData,
+            currentStateCode: "dfsdfsdf"
+          },
+          eSign: {
+            username: "dfsfsd",
+            comment: "sadasd",
+            applicationSignId: 1,
           }
         };
       };

@@ -4,12 +4,13 @@ import dts from 'vite-plugin-dts'
 import path from 'path'
 
 export default defineConfig({
-  root: __dirname,
+  root: "packages/shared-components",
   plugins: [
     vue(),
     !process.env.IS_WATCH &&
       dts({
-        // include: ['src'], // optional
+        //skipDiagnostics: true,
+        //include: ['src'], // optional
         // skipDiagnostics: true, // optional
       }),
   ].filter(Boolean),
@@ -18,7 +19,7 @@ export default defineConfig({
     minify: true,
     target: 'es2022',
     lib: {
-      entry: path.resolve(__dirname, 'index.ts'),
+      entry: 'index.ts',
       name: 'shared-components',
       formats: ['es'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,

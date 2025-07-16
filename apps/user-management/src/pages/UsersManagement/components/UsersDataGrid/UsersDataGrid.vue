@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { DataGrid, DataGridStore } from 'shared-components';
-import { useUserManagementStore } from '../../userManagement.store';
+import { useUserManagementStore } from '../../store';
 import { USERS_DATA_GRID } from '../../componentIds';
 import { userGridConfig } from './usersDataGrid.config'
 import { ref } from 'vue';

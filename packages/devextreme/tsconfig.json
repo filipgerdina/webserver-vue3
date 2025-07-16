@@ -8,7 +8,6 @@
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./",
     "strict": false,
     "noImplicitAny": false,
     "rootDir": "./"

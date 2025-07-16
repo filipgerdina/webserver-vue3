@@ -17,7 +17,7 @@ import { DxCheckBox, type DxCheckBoxTypes} from 'devextreme-vue/check-box';
 import type { ContextMenuPreparingEvent, SelectionChangedEvent } from 'devextreme/ui/data_grid';
 
 
-import DxPopup from 'devextreme-vue/popup';
+import {DxPopup, DxPosition, DxAt, DxMy, DxOffset} from 'devextreme-vue/popup';
 import { DxForm, DxSimpleItem, DxGroupItem, DxItem, DxLabel } from 'devextreme-vue/form';
 import { type FormItemComponent } from 'devextreme/ui/form';
 import { DxTabs } from 'devextreme-vue/tabs';
@@ -49,5 +49,9 @@ export {
   SelectionChangedEvent,
   DxStateStoring,
   DxToolbar,
-  DxTabs
+  DxTabs,
+  DxPosition,
+  DxAt,
+  DxMy,
+  DxOffset
 }

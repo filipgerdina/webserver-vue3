@@ -3,9 +3,8 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{workspaceRoot}/dist/packages/shared-components"],
       "options": {
-        "outputPath": "dist/packages/shared-components",
+        "outputPath": "packages/shared-components/dist",
         "configFile": "packages/shared-components/vite.config.js",
         "tsConfig": "packages/shared-components/tsconfig.json"
       },

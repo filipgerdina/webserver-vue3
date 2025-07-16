@@ -23,21 +23,17 @@ export const useUserManagementStore = defineStore('userManagementStore', () => {
     });
   }
 
-  // Trigger the event
   function triggerRefresh(componentId: string) {
-    let filteredCallbacks: (() => void)[] = [];
-    
-    filteredCallbacks = refreshListeners.value.filter(rl => refreshDependencies[componentId].includes(rl.componentId)).map(rl => rl.callback);
-    // //define dependencies between components
-    // switch (componentId) {
-    //   case usersDataGridId:
-    //     filteredCallbacks = refreshListeners.value.filter(rl => rl.componentId == userRolesDataGridId).map(rl => rl.callback);
-    // }
 
+    if (!refreshDependencies[componentId]) {
+      return;
+    }
+
+    let filteredCallbacks: (() => void)[] = [];
+    filteredCallbacks = refreshListeners.value.filter(rl => refreshDependencies[componentId].includes(rl.componentId)).map(rl => rl.callback);
     filteredCallbacks.forEach(cb => {
       cb();
     });
-
   }
 
   return {

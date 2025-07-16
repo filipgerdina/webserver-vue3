@@ -3,9 +3,8 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{workspaceRoot}/dist/packages/devextreme"],
       "options": {
-        "outputPath": "dist/packages/devextreme",
+        "outputPath": "packages/devextreme/dist",
         "configFile": "packages/devextreme/vite.config.js",
         "tsConfig": "packages/devextreme/tsconfig.json"
       },

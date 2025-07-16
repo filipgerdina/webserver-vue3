@@ -16,6 +16,7 @@ const idleLock = new CrossTabLock({
   verifyDelay: 80
 });
 
+
 import { onMounted, onUnmounted } from "vue";
 import { authService, routingService, signalRService } from 'utility'
 

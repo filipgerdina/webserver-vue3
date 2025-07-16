@@ -6,20 +6,21 @@
     :key="p.id"
     :visible="true"
     :drag-enabled="true"
-    :show-title="false"            
+    :show-title="true"            
     :width="420"
     :height="'auto'"
+    :title="translationService.translate('s:errorTitle')"
+    :show-close-button="true"
     :wrapperAttr="{ class: 'error-popup' }"
-    :position="{
-      my: 'center center',
-      at: 'center center',
-      offset: { y: i * 30 }         // 30‑px vertical stagger
-    }"
-    @hiding="remove(p.id)"
+    @hiding="() => (e: any) => remove(p.id)"
   >
+    <DxPosition
+      my="center center"
+      at="center center"
+      offset="0 30"
+    ></DxPosition>
     <!-- BODY ---------------------------------------------------------- -->
     <div class="flex items-start gap-3 p-5">
-
       <!-- user‑friendly message -->
       <div class="text-red-700 whitespace-pre-wrap break-words">
         {{ p.message }}
@@ -30,8 +31,9 @@
 
 <script setup lang="ts">
 import { reactive, onMounted, onUnmounted } from 'vue'
-import { DxPopup } from '@metronik/devextreme'
+import { DxPopup, DxPosition } from '@metronik/devextreme';
 import { errorBus } from './errorBus'
+import { translationService } from './services/translationService';
 
 interface Popup { id: number; message: string }
 

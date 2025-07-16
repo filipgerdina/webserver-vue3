@@ -1,11 +1,12 @@
 import { UserEntity } from "../../entities/user.entity";
 import { UserRolesEntity } from "../../entities/userRoles.entity";
-import { UsersUserRolesListQuery } from "../../users";
-import { useUserManagementStore } from "./userManagement.store";
+import { UsersUserRolesListQuery } from "../../../users";
+import { useUserManagementStore } from "./store";
+import cloneDeep from 'lodash/cloneDeep';
 
 const pageStore = useUserManagementStore();
-const userEntity = UserEntity;
-const userRolesEntity = UserRolesEntity;
+const userEntity = cloneDeep(UserEntity);
+const userRolesEntity = cloneDeep(UserRolesEntity);
 
 userRolesEntity.dataSource.getQueryParams = (): UsersUserRolesListQuery => (
     {

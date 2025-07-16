@@ -1,8 +1,7 @@
 {
   "name": "utility",
   "version": "0.0.1",
-  "module": "../../dist/packages/utility/index.es.js",
-  "types": "../../dist/packages/utility/utlity.es.d.ts",
+  "module": "index.ts",
   "scripts": {
     "build": "vite build"
   },

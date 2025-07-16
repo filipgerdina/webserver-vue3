@@ -2,16 +2,20 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import path from 'path'
+import pkg from './package.json' assert { type: 'json' }
+
+const externals = [
+  ...Object.keys(pkg.peerDependencies || {}),
+  'virtual:__federation__'
+]
+
+console.log(externals)
 
 export default defineConfig({
-  root: 'packages/utility',
+  root: "packages/utility",
   plugins: [
     vue(),
-    !process.env.IS_WATCH &&
-      dts({
-        // include: ['src'], // optional
-        // skipDiagnostics: true, // optional
-      }),
+    !process.env.IS_WATCH && dts({ include: ['src'] }),
   ].filter(Boolean),
   build: {
     sourcemap: true,
@@ -22,11 +26,12 @@ export default defineConfig({
       name: 'utility',
       formats: ['es'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,
-    },   
+    },
     emptyOutDir: !process.env.IS_WATCH,
     rollupOptions: {
-      external: ['vue', 'vue-router', 'virtual:__federation__', '@metronik/devextreme'],
+      external: externals,
     },
     cssCodeSplit: true,
-  }
+    outDir: 'dist',
+  },
 })

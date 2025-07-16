@@ -6,6 +6,37 @@ export interface DataSourcePost {
   bodyParams?: any;
 }
 
+export interface EditApplicationSettingsCommandParametersDataFields {
+  useStrongPassword?: boolean | null;
+  /** @format int32 */
+  languageId?: number | null;
+  /** @format int32 */
+  dateTimeFormatId?: number | null;
+  /** @format int32 */
+  decimalSeperatorId?: number | null;
+}
+
+export interface EditApplicationSettingsCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: EditApplicationSettingsCommandParametersDataFields;
+}
+
+export interface ESign {
+  username?: string | null;
+  comment?: string | null;
+  /** @format int64 */
+  applicationESignId?: number | null;
+}
+
+export interface EditApplicationSettingsCommand {
+  data?: EditApplicationSettingsCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
+}
+
 export interface SettingsDTO {
   /** @format int32 */
   id?: number;
@@ -49,6 +80,17 @@ export interface GetApplicationSettingsQueryDTOCoreResponse {
   messages?: Message[] | null;
 }
 
+export interface GetDataSourceQueryDTO {
+  /** @format int32 */
+  id?: number;
+  name?: string | null;
+}
+
+export interface GetDataSourceQueryDTOCoreListResponse {
+  data?: GetDataSourceQueryDTO[] | null;
+  messages?: Message[] | null;
+}
+
 export interface GetDateTimeFormatsQueryDTO {
   /** @format int32 */
   id?: number;
@@ -85,6 +127,18 @@ export interface GetLanguagesQueryDTOCoreListResponse {
   messages?: Message[] | null;
 }
 
+export interface GetModulesQueryDTO {
+  /** @format int32 */
+  id?: number;
+  moduleName?: string | null;
+  pathToModule?: string | null;
+}
+
+export interface GetModulesQueryDTOCoreListResponse {
+  data?: GetModulesQueryDTO[] | null;
+  messages?: Message[] | null;
+}
+
 export interface GetNavigationGroupsQueryDTO {
   /** @format int32 */
   id?: number;
@@ -99,22 +153,6 @@ export interface GetNavigationGroupsQueryDTOCoreListResponse {
   messages?: Message[] | null;
 }
 
-export interface ModuleClass {
-  /** @format int32 */
-  id?: number;
-  moduleName?: string | null;
-  pathToModue?: string | null;
-}
-
-export interface NavigationGroupClass {
-  /** @format int32 */
-  id?: number;
-  /** @format int32 */
-  parentGroupId?: number | null;
-  name?: string | null;
-  iconUrl?: string | null;
-}
-
 export interface GetPagesQueryDTO {
   /** @format int32 */
   id?: number;
@@ -122,8 +160,10 @@ export interface GetPagesQueryDTO {
   pageComponent?: string | null;
   name?: string | null;
   iconUrl?: string | null;
-  module?: ModuleClass;
-  navigationGroup?: NavigationGroupClass;
+  /** @format int32 */
+  moduleId?: number | null;
+  /** @format int32 */
+  navigationGroupId?: number | null;
 }
 
 export interface GetPagesQueryDTOCoreListResponse {
@@ -143,12 +183,52 @@ export interface GetTranslationsQueryDTOCoreListResponse {
   messages?: Message[] | null;
 }
 
+export interface RecordParams {
+  /** @format int32 */
+  recordId: number;
+  currentStateCode?: string | null;
+}
+
+export interface UtlActionFormQuery {
+  actionCode?: string | null;
+  recordTypeCode?: string | null;
+  recordParams?: RecordParams[] | null;
+  /** @format int32 */
+  userId?: number | null;
+  /** @format int32 */
+  roleId?: number | null;
+  extraParamsPageValues?: any;
+  extraParamsFormValues?: any;
+  /** @minLength 1 */
+  formCode: string;
+}
+
+export interface GetUtlActionFormQuery {
+  data?: UtlActionFormQuery;
+}
+
+export interface ProcessEndPointActionPost {
+  name?: string | null;
+  method?: string | null;
+  urlParams?: any;
+  queryParams?: any;
+  bodyParams?: any;
+}
+
 
 // ===== Request DTOs =====
 // Auto-generated request DTOs for Utl
 
 export interface UtlPagesListQuery {
   getPagesQuery?: object;
+}
+
+export interface UtlModulesListQuery {
+  getModuleQuery?: object;
+}
+
+export interface UtlDataSourcesListQuery {
+  getDataSourcesQuery?: object;
 }
 
 export interface UtlTranslationsListQuery {
@@ -173,6 +253,13 @@ export interface UtlDateTimeFormatsListQuery {
 
 export interface UtlDecimalSeperatorsListQuery {
   getDecimalSeperatorsQuery?: object;
+}
+
+export interface UtlActionsListQuery {
+  RecordTypeCode?: string;
+  RecordId?: number;
+  CurrentStateCode?: string;
+  AllActions?: boolean;
 }
 
 
@@ -243,6 +330,19 @@ export const GetApplicationSettingsQueryDTOCoreResponseFields = {
   },
 } as const;
 
+export const GetDataSourceQueryDTOCoreListResponseFields = {
+  id: {
+    _field: "id",
+    _type: "number",
+    _caption: "s:id",
+  },
+  name: {
+    _field: "name",
+    _type: "string",
+    _caption: "s:name",
+  },
+} as const;
+
 export const GetDateTimeFormatsQueryDTOCoreListResponseFields = {
   id: {
     _field: "id",
@@ -297,6 +397,24 @@ export const GetLanguagesQueryDTOCoreListResponseFields = {
   },
 } as const;
 
+export const GetModulesQueryDTOCoreListResponseFields = {
+  id: {
+    _field: "id",
+    _type: "number",
+    _caption: "s:id",
+  },
+  moduleName: {
+    _field: "moduleName",
+    _type: "string",
+    _caption: "s:moduleName",
+  },
+  pathToModule: {
+    _field: "pathToModule",
+    _type: "string",
+    _caption: "s:pathToModule",
+  },
+} as const;
+
 export const GetNavigationGroupsQueryDTOCoreListResponseFields = {
   id: {
     _field: "id",
@@ -346,50 +464,15 @@ export const GetPagesQueryDTOCoreListResponseFields = {
     _type: "string",
     _caption: "s:iconUrl",
   },
-  module: {
-    _field: "module",
-    _type: "ModuleClass",
-    _caption: "s:module",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-    },
-    moduleName: {
-      _field: "moduleName",
-      _type: "string",
-      _caption: "s:moduleName",
-    },
-    pathToModue: {
-      _field: "pathToModue",
-      _type: "string",
-      _caption: "s:pathToModue",
-    },
+  moduleId: {
+    _field: "moduleId",
+    _type: "number",
+    _caption: "s:moduleId",
   },
-  navigationGroup: {
-    _field: "navigationGroup",
-    _type: "NavigationGroupClass",
-    _caption: "s:navigationGroup",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-    },
-    parentGroupId: {
-      _field: "parentGroupId",
-      _type: "number",
-      _caption: "s:parentGroupId",
-    },
-    name: {
-      _field: "name",
-      _type: "string",
-      _caption: "s:name",
-    },
-    iconUrl: {
-      _field: "iconUrl",
-      _type: "string",
-      _caption: "s:iconUrl",
-    },
+  navigationGroupId: {
+    _field: "navigationGroupId",
+    _type: "number",
+    _caption: "s:navigationGroupId",
   },
 } as const;
 
@@ -410,4 +493,3 @@ export const GetTranslationsQueryDTOCoreListResponseFields = {
     _caption: "s:value",
   },
 } as const;
-

@@ -1,6 +1,6 @@
 {
   "name": "@gef-modules/role-management",
-  "version": "2.1.2-dev.14",
+  "version": "2.1.2-dev.18",
   "publishConfig": {
     "registry": "http://localhost:4873/"
   },
@@ -12,8 +12,12 @@
     "dist"
   ],
   "dependencies": {
-    "vue": "3.4.0",
-    "pinia": "3.0.2"
+    "@metronik/devextreme": "workspace:*",
+    "lodash": "^4.17.21",
+    "pinia": "3.0.2",
+    "shared-components": "workspace:*",
+    "utility": "workspace:*",
+    "vue": "3.4.0"
   },
   "devDependencies": {
     "vite-plugin-checker": "^0.9.3",

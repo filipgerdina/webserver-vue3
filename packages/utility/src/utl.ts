@@ -153,22 +153,6 @@ export interface GetNavigationGroupsQueryDTOCoreListResponse {
   messages?: Message[] | null;
 }
 
-export interface ModuleClass {
-  /** @format int32 */
-  id?: number;
-  moduleName?: string | null;
-  pathToModue?: string | null;
-}
-
-export interface NavigationGroupClass {
-  /** @format int32 */
-  id?: number;
-  /** @format int32 */
-  parentGroupId?: number | null;
-  name?: string | null;
-  iconUrl?: string | null;
-}
-
 export interface GetPagesQueryDTO {
   /** @format int32 */
   id?: number;
@@ -176,8 +160,10 @@ export interface GetPagesQueryDTO {
   pageComponent?: string | null;
   name?: string | null;
   iconUrl?: string | null;
-  module?: ModuleClass;
-  navigationGroup?: NavigationGroupClass;
+  /** @format int32 */
+  moduleId?: number | null;
+  /** @format int32 */
+  navigationGroupId?: number | null;
 }
 
 export interface GetPagesQueryDTOCoreListResponse {
@@ -219,6 +205,14 @@ export interface UtlActionFormQuery {
 
 export interface GetUtlActionFormQuery {
   data?: UtlActionFormQuery;
+}
+
+export interface ProcessEndPointActionPost {
+  name?: string | null;
+  method?: string | null;
+  urlParams?: any;
+  queryParams?: any;
+  bodyParams?: any;
 }
 
 
@@ -470,50 +464,15 @@ export const GetPagesQueryDTOCoreListResponseFields = {
     _type: "string",
     _caption: "s:iconUrl",
   },
-  module: {
-    _field: "module",
-    _type: "ModuleClass",
-    _caption: "s:module",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-    },
-    moduleName: {
-      _field: "moduleName",
-      _type: "string",
-      _caption: "s:moduleName",
-    },
-    pathToModue: {
-      _field: "pathToModue",
-      _type: "string",
-      _caption: "s:pathToModue",
-    },
+  moduleId: {
+    _field: "moduleId",
+    _type: "number",
+    _caption: "s:moduleId",
   },
-  navigationGroup: {
-    _field: "navigationGroup",
-    _type: "NavigationGroupClass",
-    _caption: "s:navigationGroup",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-    },
-    parentGroupId: {
-      _field: "parentGroupId",
-      _type: "number",
-      _caption: "s:parentGroupId",
-    },
-    name: {
-      _field: "name",
-      _type: "string",
-      _caption: "s:name",
-    },
-    iconUrl: {
-      _field: "iconUrl",
-      _type: "string",
-      _caption: "s:iconUrl",
-    },
+  navigationGroupId: {
+    _field: "navigationGroupId",
+    _type: "number",
+    _caption: "s:navigationGroupId",
   },
 } as const;
 

@@ -1,4 +1,4 @@
-import { authService, routingService, pagesDataSource } from 'utility';
+import { authService, routingService, pagesDataSource, settingsService } from 'utility';
 
 const router = routingService.router;
 
@@ -58,7 +58,8 @@ export async function setRoutes() {
     children: (routes?.data ?? [])
       .filter(page => typeof page.path === 'string' && page.path)
       .map(page => {
-        if (!page.module || !page.module.moduleName || !page.module.pathToModue) {
+        let module = settingsService.activeModules.value.find(m => m.id == page.moduleId)
+        if (!module || !module.moduleName || !module.pathToModule) {
           return {
               path: page.path,
               name: page.name,
@@ -76,8 +77,8 @@ export async function setRoutes() {
           path: page.path as string,
           component: () => import('../views/RemoteModuleLoader.vue'),
           meta: {
-            remoteModule: page.module?.moduleName,
-            pathToModule: page.module?.pathToModue,
+            remoteModule: module.moduleName,
+            pathToModule: module.pathToModule,
             pageComponent: page.pageComponent,
             pageName: page.name,
             pageIcon: page.iconUrl

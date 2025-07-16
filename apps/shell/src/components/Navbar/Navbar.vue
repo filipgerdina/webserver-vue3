@@ -59,7 +59,7 @@ import { navigationGroupsDataSource, pagesDataSource } from '../../utils/dataSou
 import { GetNavigationGroupsQueryDTO, GetPagesQueryDTO } from '../../utils/utl'
 import NavbarItem from './NavbarItem.vue'
 import { useNavbarExpansion } from './composables/useNavbarExpansion'
-import { translationService, GetImageUrl } from 'utility'
+import { translationService, GetImageUrl, settingsService } from 'utility'
 
 const router = useRouter()
 const route = useRoute()
@@ -100,15 +100,15 @@ function getNavigationGroup(navigationGroup: GetNavigationGroupsQueryDTO, naviga
     displayName: translationService.translate(navigationGroup.name as string),
     iconUrl: GetImageUrl(navigationGroup.iconUrl as string),
     pages: (pages ?? [])
-      .filter(p => p.navigationGroup?.id === navigationGroup.id && p.name && p.path && p.pageComponent)
+      .filter(p => p.navigationGroupId === navigationGroup.id && p.name && p.path && p.pageComponent)
       .map(p => ({
         name: translationService.translate(p.name as string),
         path: p.path as string,
         pageComponent: p.pageComponent as string,
         iconUrl: GetImageUrl(p.iconUrl as string),
         module: {
-          remoteModule: p.module?.moduleName as string,
-          pathToModule: p.module?.pathToModue as string
+          remoteModule: settingsService.activeModules.value.find(m => m.id == p.moduleId)?.moduleName as string,
+          pathToModule: settingsService.activeModules.value.find(m => m.id == p.moduleId)?.pathToModule as string
         }
       })),
     navigationGroups: (navigationGroups ?? [])

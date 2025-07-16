@@ -4,7 +4,7 @@
     "build": {
       "executor": "@nx/vite:build",
       "options": {
-        "outputPath": "dist/packages/utility",
+        "outputPath": "packages/utility/dist",
         "configFile": "packages/utility/vite.config.js",
         "tsConfig": "packages/utility/tsconfig.json"
       },

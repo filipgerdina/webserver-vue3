@@ -1,2 +1,2 @@
-export const USERS_DATA_GRID = "usersDataGrid"
-export const USER_ROLES_DATA_GRID = "userRolesDataGrid"
+export const USERS_DATA_GRID = "USERS_DATA_GRID"
+export const USER_ROLES_DATA_GRID = "USER_ROLES_DATA_GRID"

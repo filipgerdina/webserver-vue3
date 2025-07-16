@@ -5,6 +5,9 @@
     "outDir": "./",
     "strict": false,
     "noImplicitAny": false,
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "node"
   },
   "include": ["src/**/*.ts", "src/**/*.vue", "../../vue-shims.d.ts", "../../virtual__federation__.d.ts"],
   "exclude": ["node_modules", "dist"]

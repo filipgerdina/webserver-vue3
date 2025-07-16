@@ -2,8 +2,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 
-import fs from 'fs';
-import path from 'path';
 function filterSharedSourcemaps(sharedLibs: string[]) {
   return {
     name: 'filter-shared-sourcemaps',
@@ -22,25 +20,18 @@ function filterSharedSourcemaps(sharedLibs: string[]) {
 }
 
 export default defineConfig({
-  //root: 'apps/role-management',
-  // base: '/remotes/role-management/',
-  server: {
-    port: 5174,
-    strictPort: true
-  },
+  root: 'apps/role-management',
+  base: 'http://localhost:4174/',
   preview: {
     port: 4174,
     strictPort: true,
   },
   optimizeDeps: {
-    exclude: ['vue', 'vue-router', 'utility']
+    include: []
   },
   plugins: [
     vue(),
     federation({
-      // remotes: {
-      //   dummy: '/this/is/never/accessed',
-      // },
       name: 'role-management',
       filename: 'remoteEntry.js',
       exposes: {
@@ -58,15 +49,12 @@ export default defineConfig({
           generate: false
         },
         utility: {
-          import: false,
           generate: false,
         },
         'shared-components': {
-          import: false,
           generate: false,
         },
         '@metronik/devextreme': {
-          import: false,
           generate: false,
         },
       },
@@ -76,12 +64,12 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     target: 'esnext',
-    minify: false,
+    minify: true,
     sourcemap: true,
     outDir: 'dist',
     cssCodeSplit: true,
     rollupOptions: {
-      external: ['vue', 'virtual:__federation__'],
+      external: ['virtual:__federation__'],
     },
   },
 })

@@ -1,3 +1,3 @@
 {
-  "roleManagement": "https://your-runtime-remote.com/module.js"
+  "roleManagement": "http://localhost:4174/assets/remoteEntry.js"
 }

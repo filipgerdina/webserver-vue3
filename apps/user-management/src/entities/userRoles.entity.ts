@@ -1,5 +1,5 @@
 import { DataSource, QueryEntity, Entity } from 'utility';
-import { GetRolesOfUserQueryDTOCoreListResponse, UsersUserRolesListQuery } from '../users'
+import { GetRolesOfUserQueryDTOCoreListResponse, UsersUserRolesListQuery } from '../../users'
 import { module } from '../module'
 
 export const UserRolesEntity: QueryEntity<

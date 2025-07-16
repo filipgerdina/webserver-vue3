@@ -15,7 +15,6 @@ export default defineConfig({
     port: 4173,
     strictPort: true,
   },
-
   plugins: [
     {
       name: 'watch-public',
@@ -62,9 +61,9 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: true,
-    minify: false,
+    minify: true,
     target: 'esnext',
-    outDir: '../../dist/apps/shell',
+    outDir: 'dist',
     cssCodeSplit: false,
     rollupOptions: {
       plugins: [

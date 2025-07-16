@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { DataSource } from 'utility'
 import { ref } from 'vue'
-import { GetUserInformationQueryDTO, GetUserInformationQueryDTOCoreResponse, UsersUserInformationCreateQuery } from '../../users'
+import { GetUserInformationQueryDTO, GetUserInformationQueryDTOCoreResponse, UsersUserInformationCreateQuery } from '../../../users'
 
 interface RefreshListener {
   componentId: string

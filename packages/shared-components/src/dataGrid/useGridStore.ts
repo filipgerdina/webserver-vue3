@@ -10,7 +10,6 @@ export const useGridStore = (id: string) => defineStore(
   () => {
     const gridViewState = ref<DataGridStore>({});
     function resetGridView() { gridViewState.value = {}; }
-    // ...other grid logic
 
     function SaveDataGridView(viewState: DataGridStore) {
         gridViewState.value = viewState;

@@ -3,7 +3,8 @@
     ref="formRef"
     :form-data="formData"
     :items="[]"
-    label-location="left"
+    :labelLocation="'left'"
+
   >
     <DxItem
       v-for="control in props.controls"
@@ -14,6 +15,7 @@
       :editor-options="getEditorOptions(control, formData)"
       :help-text="control.description ?? undefined"
       :visible="control.visible !== null ? control.visible : undefined"
+
     />
   </DxForm>
 

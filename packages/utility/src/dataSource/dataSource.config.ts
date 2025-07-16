@@ -152,7 +152,8 @@ export class DataSource<
         this.isRealDS ? this.method : 'POST',
         {},
         body,
-        this.skipAuth
+        this.skipAuth,
+        this.cacheEnabled
       );
 
       const translatedResult = await this.applyTranslation(result);

@@ -4,13 +4,10 @@ import dts from 'vite-plugin-dts'
 import path from 'path'
 
 export default defineConfig({
-  root: __dirname,
+  root: "packages/devextreme",
   plugins: [
     vue(),
-    !process.env.IS_WATCH &&
       dts({
-        // include: ['src'], // optional
-        // skipDiagnostics: true, // optional
       }),
   ].filter(Boolean),
   build: {
@@ -25,5 +22,9 @@ export default defineConfig({
     },   
     emptyOutDir: !process.env.IS_WATCH,
     cssCodeSplit: true,
+    outDir: "dist",
+    rollupOptions: {
+      external: ['vue'],
+    }
   }
 })

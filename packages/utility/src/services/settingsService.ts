@@ -71,12 +71,14 @@ async function setAppSettings(languageId?: number | null, dateTimeFormatId?: num
     try {
       await modulesDataSource.retrieveData(async (res) => {
         const configResponse = await fetch('/config.json');
-        const config = await configResponse.json();
-        if(res.data) {
-          res.data.forEach(module => {
-            if(config[module.moduleName ?? ""])
-              module.pathToModule = config[module.moduleName ?? ""]
-          });
+        if(configResponse) {
+          const config = await configResponse.json();
+          if(res.data) {
+            res.data.forEach(module => {
+              if(config[module.moduleName ?? ""])
+                module.pathToModule = config[module.moduleName ?? ""]
+            });
+          }
         }
         activeModules.value = res.data ?? [];
       });

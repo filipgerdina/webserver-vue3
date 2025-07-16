@@ -2,14 +2,16 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "es2022",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "es2022",
+    "moduleResolution": "node",
     "declaration": true,
     "emitDeclarationOnly": false,
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "outDir": "./",
+    "strict": false,
+    "noImplicitAny": false,
+    "rootDir": "./",
   },
-  "include": ["src", "../../vue-shim.d.ts", "index.ts", "../../virtual__federation__.d.ts"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src", "index.ts", "../../virtual__federation__.d.ts"],
+  "exclude": ["dist", "node_modules", "vue"]
 }

@@ -2,19 +2,15 @@
   "name": "shell",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "watch:build": "vite build",
-    "watch:copy": "chokidar \"public/**/*\" -c \"pnpm run copy-once\"",
-    "copy-once": "node copy-public.js",
-    "watch": "vite build --watch"
-  },
   "dependencies": {
     "@metronik/devextreme": "workspace:*",
     "shared-components": "workspace:*",
     "utility": "workspace:*",
-    "@gef-modules/role-management": "dev"
+    "@gef-modules/role-management": "2.1.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
   },
   "devDependencies": {
     "vite": "*",

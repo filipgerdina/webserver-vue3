@@ -1,7 +1,7 @@
-import { GetUsersQueryDTOCoreListResponse, GetUsersQueryDTOCoreListResponseFields } from '../../../../users';
+import { GetUsersQueryDTOCoreListResponse, GetUsersQueryDTOCoreListResponseFields } from '../../../../../users';
 import { DataGridConfig } from 'shared-components'
 
-import { userEntity } from '../../userManagement.entities';
+import { userEntity } from '../../entities';
 import { USERS_DATA_GRID } from '../../componentIds';
 import { VisualizationType } from 'utility';
 

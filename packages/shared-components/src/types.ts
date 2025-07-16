@@ -16,7 +16,7 @@ export interface ColumnConfig {
 
 export interface SelectionFromDataSource {
   dataSource: DataSource<any, any, any, any>
-  displayDataMemeber: Field,
+  displayDataMemeber: Field;
   idDataMember: Field
 }
 

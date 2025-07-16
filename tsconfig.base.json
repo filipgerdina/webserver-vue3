@@ -2,24 +2,25 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es2022",
-    "module": "esnext",  
+    "module": "nodenext",  
     "lib": ["es2022", "dom"],
     "declaration": false, 
     "declarationMap": false,
     "sourceMap": true,
     "outDir": "dist/out-tsc",
     "rootDir": ".",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "alwaysStrict": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",  
+
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "strictPropertyInitialization": false,
+    "alwaysStrict": false,
+    "noImplicitThis": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+    "moduleResolution": "nodenext",  
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
@@ -33,3 +34,5 @@
   },
   "exclude": ["node_modules", "tmp"] 
 }
+
+

@@ -7,17 +7,19 @@
     "build": "vite build"
   },
   "dependencies": {
-    "vue": "3.4.0",
-    "pinia": "3.0.2",
     "@metronik/devextreme": "workspace:*",
+    "lodash": "^4.17.21",
+    "pinia": "3.0.2",
     "shared-components": "workspace:*",
-    "utility": "workspace:*"
+    "utility": "workspace:*",
+    "vue": "3.4.0"
   },
   "devDependencies": {
     "@metronik/devextreme": "workspace:*",
-    "vite-plugin-checker": "^0.9.3",
-    "@types/node": "^24.0.2",
     "@nx/vite": "21.2.1",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.0.2",
+    "vite-plugin-checker": "^0.9.3",
     "vue-tsc": "2.2.10"
   }
 }

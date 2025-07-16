@@ -1,8 +1,7 @@
 {
   "name": "shared-components",
   "version": "0.0.1",
-  "module": "../../dist/packages/shared-components/index.es.js",
-  "types": "../../dist/packages/shared-components/sharedComponents.es.d.ts",
+  "module": "index.ts",
   "scripts": {
     "build": "vite build"
   },

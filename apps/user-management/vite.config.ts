@@ -19,9 +19,6 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-      remotes: {
-        dummy: "ke tk neki"
-      },
       name: 'user-management',
       filename: 'remoteEntry.js',
       exposes: {
@@ -46,6 +43,7 @@ export default defineConfig({
           generate: false,
         },
         '@metronik/devextreme': {
+          generate: false
         },
       },
     })
@@ -53,7 +51,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     target: 'esnext',
-    minify: false,
+    minify: true,
     sourcemap: true,
     //outDir: 'dist'
     outDir: '../../apps/shell/public/remotes/user-management',

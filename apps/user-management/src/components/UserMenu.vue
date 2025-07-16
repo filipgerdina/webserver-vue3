@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { authService, DataSource, GetImageUrl, routingService } from 'utility'
-import { GetUserInformationQueryDTOCoreResponse } from '../users'
+import { GetUserInformationQueryDTOCoreResponse } from '../../users'
 import { translationService, settingsService } from 'utility'
 
 const t = translationService.translate
