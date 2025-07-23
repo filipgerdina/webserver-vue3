@@ -139,9 +139,12 @@ importers:
         specifier: 3.4.0
         version: 3.4.0(typescript@5.8.2)
     devDependencies:
+      '@module-federation/vite':
+        specifier: 1.6.0
+        version: 1.6.0(rollup@4.44.2)
       '@nx/vite':
         specifier: 21.2.1
-        version: 21.2.1(@babel/traverse@7.27.7)(nx@21.2.1)(typescript@5.8.2)(vite@7.0.3(@types/node@24.0.2)(yaml@2.8.0))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))
+        version: 21.2.1(@babel/traverse@7.27.7)(nx@21.2.2)(typescript@5.8.2)(vite@7.0.3(@types/node@24.0.2)(yaml@2.8.0))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))
       '@types/node':
         specifier: ^24.0.2
         version: 24.0.2
@@ -172,10 +175,10 @@ importers:
     devDependencies:
       '@module-federation/vite':
         specifier: 1.5.1
-        version: 1.5.1(rollup@4.44.1)
+        version: 1.5.1(rollup@3.29.5)
       '@nx/vite':
         specifier: 21.2.1
-        version: 21.2.1(@babel/traverse@7.27.7)(nx@21.2.2)(typescript@5.8.2)(vite@4.5.14(@types/node@24.0.2))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))
+        version: 21.2.1(@babel/traverse@7.27.7)(nx@21.2.1)(typescript@5.8.2)(vite@4.5.14(@types/node@24.0.2))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))
       '@vitejs/plugin-vue':
         specifier: 6.0.0
         version: 6.0.0(vite@4.5.14(@types/node@24.0.2))(vue@3.5.17(typescript@5.8.2))
@@ -227,7 +230,7 @@ importers:
     devDependencies:
       '@module-federation/vite':
         specifier: 1.5.1
-        version: 1.5.1(rollup@4.44.1)
+        version: 1.5.1(rollup@4.44.2)
       '@nx/vite':
         specifier: 21.2.1
         version: 21.2.1(@babel/traverse@7.27.7)(nx@21.2.2)(typescript@5.8.2)(vite@7.0.3(@types/node@24.0.2)(yaml@2.8.0))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))
@@ -1445,6 +1448,9 @@ packages:
   '@module-federation/vite@1.5.1':
     resolution: {integrity: sha512-ge5cT7BzBFicirnqQ8vqYtaqlm8aXQWU0t0FBsXiEoyqhOrYCPKuZ5LNc42Np0MHidzmMln0bmm71psmdfeRdQ==}
 
+  '@module-federation/vite@1.6.0':
+    resolution: {integrity: sha512-ev25g6mAlzJXeKjWidibCACdrsbXYevlNH939O9jpF/AyZhQdNTNnX1cARIWN2BsCmneOnXpwCHlX58jAoMQMw==}
+
   '@module-federation/webpack-bundler-runtime@0.15.0':
     resolution: {integrity: sha512-i+3wu2Ljh2TmuUpsnjwZVupOVqV50jP0ndA8PSP4gwMKlgdGeaZ4VH5KkHAXGr2eiYUxYLMrJXz1+eILJqeGDg==}
 
@@ -2514,6 +2520,9 @@ packages:
     resolution: {integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==}
     engines: {node: '>=12'}
 
+  defu@6.1.4:
+    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
+
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
@@ -3464,6 +3473,9 @@ packages:
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+
+  pathe@1.1.2:
+    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
@@ -5624,10 +5636,32 @@ snapshots:
       fs-extra: 9.1.0
       resolve: 1.22.8
 
-  '@module-federation/vite@1.5.1(rollup@4.44.1)':
+  '@module-federation/vite@1.5.1(rollup@3.29.5)':
     dependencies:
       '@module-federation/runtime': 0.8.12
-      '@rollup/pluginutils': 5.1.4(rollup@4.44.1)
+      '@rollup/pluginutils': 5.1.4(rollup@3.29.5)
+      defu: 6.1.4
+      estree-walker: 2.0.2
+      magic-string: 0.30.17
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+
+  '@module-federation/vite@1.5.1(rollup@4.44.2)':
+    dependencies:
+      '@module-federation/runtime': 0.8.12
+      '@rollup/pluginutils': 5.1.4(rollup@4.44.2)
+      defu: 6.1.4
+      estree-walker: 2.0.2
+      magic-string: 0.30.17
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+
+  '@module-federation/vite@1.6.0(rollup@4.44.2)':
+    dependencies:
+      '@module-federation/runtime': 0.16.0
+      '@rollup/pluginutils': 5.1.4(rollup@4.44.2)
       defu: 6.1.4
       estree-walker: 2.0.2
       magic-string: 0.30.17
@@ -5871,33 +5905,10 @@ snapshots:
   '@nx/nx-win32-x64-msvc@21.2.2':
     optional: true
 
-  '@nx/vite@21.2.1(@babel/traverse@7.27.7)(nx@21.2.1)(typescript@5.8.2)(vite@7.0.3(@types/node@24.0.2)(yaml@2.8.0))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))':
+  '@nx/vite@21.2.1(@babel/traverse@7.27.7)(nx@21.2.1)(typescript@5.8.2)(vite@4.5.14(@types/node@24.0.2))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))':
     dependencies:
       '@nx/devkit': 21.2.1(nx@21.2.1)
       '@nx/js': 21.2.1(@babel/traverse@7.27.7)(nx@21.2.1)
-      '@phenomnomnominal/tsquery': 5.0.1(typescript@5.8.2)
-      '@swc/helpers': 0.5.17
-      ajv: 8.13.0
-      enquirer: 2.3.6
-      picomatch: 4.0.2
-      semver: 7.7.2
-      tsconfig-paths: 4.2.0
-      vite: 7.0.3(@types/node@24.0.2)(yaml@2.8.0)
-      vitest: 3.2.4(@types/node@24.0.2)(yaml@2.8.0)
-    transitivePeerDependencies:
-      - '@babel/traverse'
-      - '@swc-node/register'
-      - '@swc/core'
-      - debug
-      - nx
-      - supports-color
-      - typescript
-      - verdaccio
-
-  '@nx/vite@21.2.1(@babel/traverse@7.27.7)(nx@21.2.2)(typescript@5.8.2)(vite@4.5.14(@types/node@24.0.2))(vitest@3.2.4(@types/node@24.0.2)(yaml@2.8.0))':
-    dependencies:
-      '@nx/devkit': 21.2.1(nx@21.2.2)
-      '@nx/js': 21.2.1(@babel/traverse@7.27.7)(nx@21.2.2)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.8.2)
       '@swc/helpers': 0.5.17
       ajv: 8.13.0
@@ -6028,11 +6039,19 @@ snapshots:
 
   '@rollup/pluginutils@5.1.4(rollup@3.29.5)':
     dependencies:
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       estree-walker: 2.0.2
       picomatch: 4.0.2
     optionalDependencies:
       rollup: 3.29.5
+
+  '@rollup/pluginutils@5.1.4(rollup@4.44.2)':
+    dependencies:
+      '@types/estree': 1.0.8
+      estree-walker: 2.0.2
+      picomatch: 4.0.2
+    optionalDependencies:
+      rollup: 4.44.2
 
   '@rollup/rollup-android-arm-eabi@4.44.2':
     optional: true
@@ -6926,6 +6945,8 @@ snapshots:
   define-lazy-prop@2.0.0: {}
 
   define-lazy-prop@3.0.0: {}
+
+  defu@6.1.4: {}
 
   delayed-stream@1.0.0: {}
 
@@ -7973,6 +7994,8 @@ snapshots:
   path-to-regexp@0.1.12: {}
 
   path-type@4.0.0: {}
+
+  pathe@1.1.2: {}
 
   pathe@2.0.3: {}
 
