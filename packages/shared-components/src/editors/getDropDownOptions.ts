@@ -18,9 +18,6 @@ export function getDropDownOptions(
         formData[control.dataField] = e.value;
       }
     },
-    dropDownOptions: {
-      
-    }
   };
 }
 

@@ -1,5 +1,6 @@
 import { fetchService } from "../services/fetchService"
 import { translationService } from "../services/translationService"
+import { Field } from "./field";
 
 function isObject(val: any): val is Record<string, any> {
   return val && typeof val === 'object' && !Array.isArray(val);
@@ -56,7 +57,8 @@ export class DataSource<
   private queryParams: TQuery | null = null;
   private bodyParams: TBody | null = null;
 
-  private translatableResponseFields: string[] = [];
+  public translatableResponseFields: (Field | string)[] = [];
+
 
   constructor(options: {
     name: string;
@@ -69,7 +71,7 @@ export class DataSource<
     getUrlParams?: () => TUrl;
     getQueryParams?: () => TQuery;
     getBodyParams?: () => TBody;
-    translatableResponseFields?: string[];
+    translatableResponseFields?: (Field | string)[];
   }) {
     this.name = options.name;
     this.method = options.method ?? 'POST';
@@ -100,7 +102,10 @@ export class DataSource<
     if (!result || !this.translatableResponseFields.length) return result;
 
     const cloned = structuredClone(result); // avoid mutating original
-    for (const path of this.translatableResponseFields) {
+    for (const obj of this.translatableResponseFields) {
+      const path = typeof(obj) == "string" ? obj : obj._translationField;
+      if (!path) continue;
+
       const parts = path.split('.');
       deepTranslate(cloned, parts, translationService.translate);
     }

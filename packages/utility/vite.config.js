@@ -9,13 +9,11 @@ const externals = [
   'virtual:__federation__'
 ]
 
-console.log(externals)
-
 export default defineConfig({
   root: "packages/utility",
   plugins: [
     vue(),
-    !process.env.IS_WATCH && dts({ include: ['src'] }),
+    !process.env.VITE_WATCH_MODE && dts({ include: ['src'] }),
   ].filter(Boolean),
   build: {
     sourcemap: true,
@@ -27,7 +25,7 @@ export default defineConfig({
       formats: ['es'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
-    emptyOutDir: !process.env.IS_WATCH,
+    emptyOutDir: !process.env.VITE_WATCH_MODE,
     rollupOptions: {
       external: externals,
     },

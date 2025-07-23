@@ -1,25 +1,26 @@
 {
   "name": "@gef-modules/role-management",
-  "version": "2.1.2-dev.18",
+  "version": "2.1.2-dev.35",
   "publishConfig": {
     "registry": "http://localhost:4873/"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "pnpm exec nx run role-management:build"
   },
   "files": [
-    "dist"
+    "*"
   ],
-  "dependencies": {
-    "@metronik/devextreme": "workspace:*",
-    "lodash": "^4.17.21",
+  "dependencies": {},
+  "devDependencies": {
     "pinia": "3.0.2",
+    "vue": "3.4.0",
+    "lodash": "^4.17.21",
+    "@metronik/devextreme": "workspace:*",
+    "@gef-modules/shell": "dev",
+    "@gef-modules/user-management": "dev",
     "shared-components": "workspace:*",
     "utility": "workspace:*",
-    "vue": "3.4.0"
-  },
-  "devDependencies": {
     "vite-plugin-checker": "^0.9.3",
     "@types/node": "^24.0.2",
     "@nx/vite": "21.2.1",

@@ -17,7 +17,6 @@ import { useRolesManagementStore } from '../../rolesManagement.store';
 import { ROLES_DATA_GRID } from '../../componentIds';
 import { rolesGridConfig } from './rolesDataGrid.config'
 import { ref } from 'vue';
-import { DxButton } from '@metronik/devextreme';
 
 const pageStore = useRolesManagementStore();
 const dataGridRef = ref();

@@ -1,4 +1,4 @@
-import { GetRolesQueryDTOCoreListResponse, GetRolesQueryDTOCoreListResponseFields } from '../../../../roles';
+import { GetRolesQueryDTOCoreListResponse, GetRolesQueryDTOCoreListResponseFields } from '../../../../../roles';
 import { DataGridConfig } from 'shared-components'
 
 import { rolesEntity } from '../../rolesManagement.entities';

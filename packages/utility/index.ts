@@ -5,19 +5,19 @@ import type { QueryDataSource } from './src/dataSource/dataSource.config'
 import { Entity, View } from './src/entity/entity.config'
 import type { QueryEntity, QueryView } from './src/entity/entity.config'
 import { Module } from './src/module/module.config'
-import { VisualizationType, type ActionsQueryDTO, type ActionFormControl, type RecordParams, type ActionsQueryDTOCoreListResponse } from './src/module/module.config' 
 import { EndPointAction } from './src/dataSource/endPointAction.config'
 import { CrossTabLock } from './src/services/crossTabLock'
 import { loadRemoteModule } from './src/RemoteModuleLoader'
 import  RemoteModuleComponentLoader from './src/RemoteModuleComponentLoader.vue'
 import { GetImageUrl } from './src/utilFunctions'
-import { GetPagesQueryDTOCoreListResponseFields, GetDataSourceQueryDTOCoreListResponseFields } from './src/utl'
-
+import { VisualizationType, GetPagesQueryDTOCoreListResponseFields, GetDataSourceQueryDTOCoreListResponseFields } from './src/utl'
+import type { ActionsQueryDTO, ActionFormControl, RecordParams, ActionsQueryDTOCoreListResponse } from './src/utl'
 import { signalRService } from './src/services/signalRService'
 import { translationService } from './src/services/translationService'
 import { settingsService } from './src/services/settingsService'
 import { pagesDataSource, dataSourcesDataSource} from './src/dataSource/utlityDataSources'
 import ErrorPopupContainer from './src/ErrorPopupContainer.vue'
+import type { Field } from './src/dataSource/field'
 export {
   authService,
   routingService,
@@ -45,5 +45,6 @@ export {
   GetPagesQueryDTOCoreListResponseFields,
   dataSourcesDataSource,
   GetDataSourceQueryDTOCoreListResponseFields,
-  ErrorPopupContainer
+  ErrorPopupContainer,
+  Field
 }

@@ -16,23 +16,6 @@ export default defineConfig({
     strictPort: true,
   },
   plugins: [
-    {
-      name: 'watch-public',
-      configureServer(server) {
-        const dirToWatch = './public/remotes'
-
-        fs.readdirSync(dirToWatch).forEach((file) => {
-          server.watcher.add(`${dirToWatch}/${file}`)
-        })
-
-        server.watcher.on('change', (path) => {
-          if (path.startsWith(dirToWatch)) {
-            console.log(`File changed in public: ${path}`)
-            server.ws.send({ type: 'full-reload' })
-          }
-        })
-      },
-    },
     vue(),
     federation({
       name: 'shell',
@@ -44,8 +27,8 @@ export default defineConfig({
         'vue-router': {},
         pinia: {},
         utility: {},
-        'shared-components': { import: true },
-        '@metronik/devextreme': { import: true },
+        'shared-components': {},
+        '@metronik/devextreme': {},
       },
     }),
   ],

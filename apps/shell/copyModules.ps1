@@ -1,49 +1,32 @@
-# Load and parse package.json
-$packageJsonPath = "package.json"
-$packageJson = Get-Content $packageJsonPath -Raw | ConvertFrom-Json
+# Set list of remotes to copy
+$Remotes = @("role-management", "user-management")
 
-# Base paths
-$nodeModulesBase = "node_modules/@gef-modules"
-$publicRemotesBase = "public/remotes"
-$shellRemotesBase = "../../dist/apps/shell/remotes"
+foreach ($Remote in $Remotes) {
+    # Set source and target paths
+    $SourcePath = Join-Path -Path $PSScriptRoot -ChildPath "..\$Remote\dist"
+    $TargetPath = Join-Path -Path $PSScriptRoot -ChildPath "public\remotes\$Remote"
 
-# Extract @gef-modules/* dependencies
-$gefModules = $packageJson.dependencies.PSObject.Properties |
-    Where-Object { $_.Name -like "@gef-modules/*" } |
-    ForEach-Object {
-        $_.Name.Split("/")[1]  # Extract module name (e.g., 'role-management')
-    }
-
-if (-not $gefModules) {
-    Write-Host "No @gef-modules dependencies found in package.json"
-    exit 1
-}
-
-foreach ($module in $gefModules) {
-    $sourcePath = Join-Path -Path $nodeModulesBase -ChildPath "$module/dist"
-    $destPublic = Join-Path -Path $publicRemotesBase -ChildPath $module
-    $destShell = Join-Path -Path $shellRemotesBase -ChildPath $module
-
-    Write-Host "Copying $module... from $sourcePath to $destPublic and $destShell"
-
-    if (-not (Test-Path $sourcePath)) {
-        Write-Host "Source not found: $sourcePath"
+    # Resolve source path
+    try {
+        $ResolvedSource = Resolve-Path $SourcePath -ErrorAction Stop
+    } catch {
+        Write-Host "Skipping ${Remote}: Source path not found (${SourcePath})"
         continue
     }
 
-    # Ensure and empty public/remotes/{module}
-    if (-not (Test-Path $destPublic)) { New-Item -ItemType Directory -Path $destPublic | Out-Null }
-    Get-ChildItem -Path $destPublic -Recurse -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+    # Ensure target directory exists
+    if (-not (Test-Path $TargetPath)) {
+        New-Item -ItemType Directory -Path $TargetPath -Force | Out-Null
+    }
 
-    # Ensure and empty ../../dist/apps/shell/remotes/{module}
-    if (-not (Test-Path $destShell)) { New-Item -ItemType Directory -Path $destShell | Out-Null }
-    Get-ChildItem -Path $destShell -Recurse -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+    # Clean and copy
+    Write-Host "Clearing: ${TargetPath}"
+    Remove-Item -Recurse -Force -Path "$TargetPath\*" -ErrorAction SilentlyContinue
 
-    # Copy to destinations
-    Copy-Item -Path $sourcePath\* -Destination $destPublic -Recurse -Force
-    Copy-Item -Path $sourcePath\* -Destination $destShell -Recurse -Force
+    Write-Host "Copying ${Remote} from ${ResolvedSource} to ${TargetPath}..."
+    Copy-Item -Recurse -Force -Path "$ResolvedSource\*" -Destination $TargetPath
 
-    Write-Host "$module copied successfully.`n"
+    Write-Host "${Remote} copied successfully.`n"
 }
 
-Write-Host "All @gef-modules copied."
+Write-Host "All remotes processed."

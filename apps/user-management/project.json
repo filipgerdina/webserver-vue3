@@ -4,7 +4,7 @@
     "build": {
       "executor": "@nx/vite:build",
       "options": {
-        "outputPath": "apps/shell/public/remotes/user-management",
+        "outputPath": "apps/user-management/dist",
         "configFile": "apps/user-management/vite.config.ts",
         "tsConfig": "apps/user-management/tsconfig.app.json"
       },
@@ -19,6 +19,73 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "vite preview --config apps/user-management/vite.config.ts"
+      }
+    },
+    "patch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version patch",
+        "cwd": "apps/user-management"
+      }
+    },
+    "release:patch": {
+      "dependsOn": ["patch", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "apps/user-management/dist"
+      }
+    },
+    "minor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version minor",
+        "cwd": "apps/user-management"
+      }
+    },
+    "release:minor": {
+      "dependsOn": ["minor", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "apps/user-management/dist"
+      }
+    },
+    "major": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version major",
+        "cwd": "apps/user-management"
+      }
+    },
+    "release:major": {
+      "dependsOn": ["major", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "apps/user-management/dist"
+      }
+    },
+    "prerelease": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version prerelease --preid=dev",
+        "cwd": "apps/user-management"
+      }
+    },
+    "release:dev": {
+      "dependsOn": ["prerelease", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish --tag dev",
+        "cwd": "apps/user-management/dist"
+      }
+    },
+    "updateDependencies": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm update '@gef-modules/*' && powershell .\\copyModules.ps1 && node ./node_modules/@gef-modules/shell/server.js",
+        "cwd": "apps/user-management"
       }
     }
   }

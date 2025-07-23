@@ -1,10 +1,5 @@
-import type { DataSource, Entity, View, VisualizationType } from 'utility';
+import type { DataSource, Entity, View, VisualizationType, Field } from 'utility';
 
-export interface Field {
-  _field: string
-  _type: string
-  _caption: string
-}
 export interface ColumnConfig {
   field: Field,
   visible: boolean

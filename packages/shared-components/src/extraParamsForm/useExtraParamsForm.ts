@@ -41,7 +41,7 @@ export function useExtraParamsForm(
 
         // initialize formData
         controls.value.forEach((c) => {
-          if (c.dataField && !(c.dataField in formData)) {
+          if (c.dataField) {
             formData[c.dataField] = res?.data?.defaultValues?.[c.dataField] ?? null;
           }
         });

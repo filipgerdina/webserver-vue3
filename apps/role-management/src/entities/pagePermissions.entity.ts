@@ -1,6 +1,6 @@
 import { DataSource } from 'utility'
 import { QueryEntity, Entity } from 'utility'
-import { GetPagePermissionsOfRoleQueryDTOCoreListResponse, RolesPagePermissionsListQuery} from '../roles'
+import { GetPagePermissionsOfRoleQueryDTOCoreListResponse, GetPagePermissionsOfRoleQueryDTOCoreListResponseFields, RolesPagePermissionsListQuery} from '../../roles'
 
 import { module } from '../module'
 
@@ -11,7 +11,7 @@ GetPagePermissionsOfRoleQueryDTOCoreListResponse
     dataSource: new DataSource({
         name: 'pagePermissions',
         method: 'GET',
-        translatableResponseFields: ["data.name"]
+        translatableResponseFields: [GetPagePermissionsOfRoleQueryDTOCoreListResponseFields.name]
     }),
     entityCode: 'ROLE_PAGE_PERMISSIONS',
     module: module,

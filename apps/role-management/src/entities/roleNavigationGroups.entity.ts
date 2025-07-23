@@ -1,6 +1,6 @@
 import { DataSource } from 'utility'
 import { QueryEntity, Entity } from 'utility'
-import { GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponse, RolesRolesNavigationGroupsListQuery} from '../roles'
+import { GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponse, GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponseFields, RolesRolesNavigationGroupsListQuery} from '../../roles'
 
 import { module } from '../module'
 
@@ -11,7 +11,7 @@ GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponse
     dataSource: new DataSource({
         name: 'roleNavigationGroups',
         method: 'GET',
-        translatableResponseFields: ["data.name"]
+        translatableResponseFields: [GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponseFields.name]
     }),
     entityCode: 'ROLE_NAVIGATION_GROUPS',
     module: module,

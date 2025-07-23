@@ -1,5 +1,5 @@
 import { DataSource, QueryEntity, Entity } from 'utility';
-import { GetRolesOfUserQueryDTOCoreListResponse, UsersUserRolesListQuery } from '../../users'
+import { GetRolesOfUserQueryDTOCoreListResponse, GetRolesOfUserQueryDTOCoreListResponseFields, UsersUserRolesListQuery } from '../../users'
 import { module } from '../module'
 
 export const UserRolesEntity: QueryEntity<
@@ -12,7 +12,7 @@ new Entity({
     dataSource: new DataSource({
         name: 'userRoles',
         method: 'GET',
-        translatableResponseFields: ["data.defaultPage"]
+        translatableResponseFields: [GetRolesOfUserQueryDTOCoreListResponseFields.defaultPage]
     }), 
 });
 

@@ -1,6 +1,6 @@
 import { DataSource } from 'utility'
 import { QueryEntity, Entity } from 'utility'
-import { GetRolesQueryDTOCoreListResponse} from '../roles'
+import { GetRolesQueryDTOCoreListResponse, GetRolesQueryDTOCoreListResponseFields} from '../../roles'
 
 import { module } from '../module'
 
@@ -10,8 +10,7 @@ GetRolesQueryDTOCoreListResponse
 > = new Entity({
     dataSource: new DataSource({
         name: 'roles',
-        method: 'GET',
-        translatableResponseFields: ["data.defaultPage"]
+        translatableResponseFields: [GetRolesQueryDTOCoreListResponseFields.defaultPage]
     }),
     entityCode: 'ROLES',
     module: module,

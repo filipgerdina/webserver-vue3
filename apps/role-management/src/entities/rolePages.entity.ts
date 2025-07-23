@@ -1,6 +1,6 @@
 import { DataSource } from 'utility'
 import { QueryEntity, Entity } from 'utility'
-import { GetPagesOfRoleQueryDTOCoreListResponse, RolesRolesPagesListQuery} from '../roles'
+import { GetPagesOfRoleQueryDTOCoreListResponse, GetPagesOfRoleQueryDTOCoreListResponseFields, RolesRolesPagesListQuery} from '../../roles'
 
 import { module } from '../module'
 
@@ -11,7 +11,7 @@ GetPagesOfRoleQueryDTOCoreListResponse
     dataSource: new DataSource({
         name: 'rolePages',
         method: 'GET',
-        translatableResponseFields: ["data.name"]
+        translatableResponseFields: [GetPagesOfRoleQueryDTOCoreListResponseFields.name]
     }),
     entityCode: 'ROLE_PAGES',
     module: module,

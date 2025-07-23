@@ -5,6 +5,7 @@ npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+api
 
 # Dependency directories
 node_modules/
@@ -68,3 +69,4 @@ __mf__temp
 /apps/shell/public/remotes/
 apps/*/apps/
 tsconfig.app.tsbuildinfo
+.github/instructions/nx.instructions.md

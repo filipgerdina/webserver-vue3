@@ -5,7 +5,7 @@
     "outDir": "./",
     "strict": false,
     "noImplicitAny": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": ["src/**/*.ts", "src/**/*.vue", "../../vue-shims.d.ts", "../../virtual__federation__.d.ts"],
   "exclude": ["node_modules", "dist"]

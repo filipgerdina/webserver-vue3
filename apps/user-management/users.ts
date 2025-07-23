@@ -1,7 +1,7 @@
 // ===== Module DTOs =====
 export interface AddRoleToUserCommandParametersDataFields {
   /** @format int32 */
-  id: number;
+  userId: number;
   /** @format int32 */
   roleId: number;
 }
@@ -24,6 +24,36 @@ export interface ESign {
 
 export interface AddRoleToUserCommand {
   data?: AddRoleToUserCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
+}
+
+export interface EditProfileCommandParametersDataFields {
+  username?: string | null;
+  domainUsername?: string | null;
+  email?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  /** @format int32 */
+  defaultPageId?: number | null;
+  /** @format int32 */
+  languageId?: number | null;
+  /** @format int32 */
+  dateTimeFormatId?: number | null;
+  /** @format int32 */
+  decimalSeperatorId?: number | null;
+}
+
+export interface EditProfileCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: EditProfileCommandParametersDataFields;
+}
+
+export interface EditProfileCommand {
+  data?: EditProfileCommandParametersDataFieldsActionRequestExtraParam;
   eSign?: ESign;
 }
 
@@ -108,6 +138,10 @@ export interface UserActionFormQuery {
   actionCode?: string | null;
   recordTypeCode?: string | null;
   recordParams?: RecordParams[] | null;
+  /** @format int32 */
+  userId?: number | null;
+  /** @format int32 */
+  roleId?: number | null;
   extraParamsPageValues?: any;
   extraParamsFormValues?: any;
   /** @minLength 1 */
@@ -138,7 +172,7 @@ export interface GetUserInformationQueryDTO {
   /** @format date-time */
   added?: string;
   roleNames?: string[] | null;
-  defaultPage?: string | null;
+  defaultPagePath?: string | null;
   /** @format int32 */
   languageId?: number | null;
   /** @format int32 */
@@ -167,6 +201,8 @@ export interface GetUsersQueryDTO {
   id?: number;
   username?: string | null;
   displayName?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
   email?: string | null;
   isSystem?: boolean;
   isLocked?: boolean;
@@ -329,51 +365,61 @@ export const GetRolesOfUserQueryDTOCoreListResponseFields = {
     _field: "utcRecordTimestamp",
     _type: "string",
     _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
   },
   userId: {
     _field: "userId",
     _type: "number",
     _caption: "s:userId",
+    _translationField: "data.userId",
   },
   userInfo: {
     _field: "userInfo",
     _type: "string",
     _caption: "s:userInfo",
+    _translationField: "data.userInfo",
   },
   utcRecordTimestampUpd: {
     _field: "utcRecordTimestampUpd",
     _type: "string",
     _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
   },
   userIdUpd: {
     _field: "userIdUpd",
     _type: "number",
     _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
   },
   userInfoUpd: {
     _field: "userInfoUpd",
     _type: "string",
     _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
   },
   id: {
     _field: "id",
     _type: "number",
     _caption: "s:id",
+    _translationField: "data.id",
   },
   roleId: {
     _field: "roleId",
     _type: "number",
     _caption: "s:roleId",
+    _translationField: "data.roleId",
   },
   name: {
     _field: "name",
     _type: "string",
     _caption: "s:name",
+    _translationField: "data.name",
   },
   defaultPage: {
     _field: "defaultPage",
     _type: "string",
     _caption: "s:defaultPage",
+    _translationField: "data.defaultPage",
   },
 } as const;
 
@@ -382,91 +428,109 @@ export const GetUserInformationQueryDTOCoreResponseFields = {
     _field: "utcRecordTimestamp",
     _type: "string",
     _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
   },
   userId: {
     _field: "userId",
     _type: "number",
     _caption: "s:userId",
+    _translationField: "data.userId",
   },
   userInfo: {
     _field: "userInfo",
     _type: "string",
     _caption: "s:userInfo",
+    _translationField: "data.userInfo",
   },
   utcRecordTimestampUpd: {
     _field: "utcRecordTimestampUpd",
     _type: "string",
     _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
   },
   userIdUpd: {
     _field: "userIdUpd",
     _type: "number",
     _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
   },
   userInfoUpd: {
     _field: "userInfoUpd",
     _type: "string",
     _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
   },
   username: {
     _field: "username",
     _type: "string",
     _caption: "s:username",
+    _translationField: "data.username",
   },
   displayName: {
     _field: "displayName",
     _type: "string",
     _caption: "s:displayName",
+    _translationField: "data.displayName",
   },
   domainUserName: {
     _field: "domainUserName",
     _type: "string",
     _caption: "s:domainUserName",
+    _translationField: "data.domainUserName",
   },
   email: {
     _field: "email",
     _type: "string",
     _caption: "s:email",
+    _translationField: "data.email",
   },
   firstName: {
     _field: "firstName",
     _type: "string",
     _caption: "s:firstName",
+    _translationField: "data.firstName",
   },
   lastName: {
     _field: "lastName",
     _type: "string",
     _caption: "s:lastName",
+    _translationField: "data.lastName",
   },
   added: {
     _field: "added",
     _type: "string",
     _caption: "s:added",
+    _translationField: "data.added",
   },
   roleNames: {
     _field: "roleNames",
     _type: "array",
     _caption: "s:roleNames",
+    _translationField: "data.roleNames",
   },
-  defaultPage: {
-    _field: "defaultPage",
+  defaultPagePath: {
+    _field: "defaultPagePath",
     _type: "string",
-    _caption: "s:defaultPage",
+    _caption: "s:defaultPagePath",
+    _translationField: "data.defaultPagePath",
   },
   languageId: {
     _field: "languageId",
     _type: "number",
     _caption: "s:languageId",
+    _translationField: "data.languageId",
   },
   dateTimeFormatId: {
     _field: "dateTimeFormatId",
     _type: "number",
     _caption: "s:dateTimeFormatId",
+    _translationField: "data.dateTimeFormatId",
   },
   decimalSeperatorId: {
     _field: "decimalSeperatorId",
     _type: "number",
     _caption: "s:decimalSeperatorId",
+    _translationField: "data.decimalSeperatorId",
   },
 } as const;
 
@@ -475,71 +539,97 @@ export const GetUsersQueryDTOCoreListResponseFields = {
     _field: "utcRecordTimestamp",
     _type: "string",
     _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
   },
   userId: {
     _field: "userId",
     _type: "number",
     _caption: "s:userId",
+    _translationField: "data.userId",
   },
   userInfo: {
     _field: "userInfo",
     _type: "string",
     _caption: "s:userInfo",
+    _translationField: "data.userInfo",
   },
   utcRecordTimestampUpd: {
     _field: "utcRecordTimestampUpd",
     _type: "string",
     _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
   },
   userIdUpd: {
     _field: "userIdUpd",
     _type: "number",
     _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
   },
   userInfoUpd: {
     _field: "userInfoUpd",
     _type: "string",
     _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
   },
   id: {
     _field: "id",
     _type: "number",
     _caption: "s:id",
+    _translationField: "data.id",
   },
   username: {
     _field: "username",
     _type: "string",
     _caption: "s:username",
+    _translationField: "data.username",
   },
   displayName: {
     _field: "displayName",
     _type: "string",
     _caption: "s:displayName",
+    _translationField: "data.displayName",
+  },
+  firstName: {
+    _field: "firstName",
+    _type: "string",
+    _caption: "s:firstName",
+    _translationField: "data.firstName",
+  },
+  lastName: {
+    _field: "lastName",
+    _type: "string",
+    _caption: "s:lastName",
+    _translationField: "data.lastName",
   },
   email: {
     _field: "email",
     _type: "string",
     _caption: "s:email",
+    _translationField: "data.email",
   },
   isSystem: {
     _field: "isSystem",
     _type: "boolean",
     _caption: "s:isSystem",
+    _translationField: "data.isSystem",
   },
   isLocked: {
     _field: "isLocked",
     _type: "boolean",
     _caption: "s:isLocked",
+    _translationField: "data.isLocked",
   },
   added: {
     _field: "added",
     _type: "string",
     _caption: "s:added",
+    _translationField: "data.added",
   },
   domain: {
     _field: "domain",
     _type: "string",
     _caption: "s:domain",
+    _translationField: "data.domain",
   },
 } as const;
 

@@ -21,6 +21,73 @@
       "options": {
         "command": "vite preview --config apps/role-management/vite.config.ts"
       }
+    },
+    "patch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version patch",
+        "cwd": "apps/role-management"
+      }
+    },
+    "release:patch": {
+      "dependsOn": ["patch", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "apps/role-management/dist"
+      }
+    },
+    "minor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version minor",
+        "cwd": "apps/role-management"
+      }
+    },
+    "release:minor": {
+      "dependsOn": ["minor", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "apps/role-management/dist"
+      }
+    },
+    "major": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version major",
+        "cwd": "apps/role-management"
+      }
+    },
+    "release:major": {
+      "dependsOn": ["major", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "apps/role-management/dist"
+      }
+    },
+    "prerelease": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm version prerelease --preid=dev",
+        "cwd": "apps/role-management"
+      }
+    },
+    "release:dev": {
+      "dependsOn": ["prerelease", "build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish --tag dev",
+        "cwd": "apps/role-management/dist"
+      }
+    },
+    "updateDependencies": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm update '@gef-modules/*' && powershell .\\copyModules.ps1 && node ./node_modules/@gef-modules/shell/server.js",
+        "cwd": "apps/role-management"
+      }
     }
   }
 }

@@ -2,9 +2,36 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 
+function filterSharedSourcemaps(sharedLibs: string[]) {
+  return {
+    name: 'filter-shared-sourcemaps',
+    generateBundle(_, bundle) {
+      for (const [fileName, chunk] of Object.entries(bundle)) {
+
+        // 🗺️ Skip sourcemaps for shared libraries
+        if (fileName.endsWith('.map')) {
+          const shouldDelete = sharedLibs.some(lib => fileName.includes(lib));
+          if (shouldDelete) {
+            delete bundle[fileName];
+            console.log(`⏩ Skipped sourcemap for shared: ${fileName}`);
+          }
+        }
+
+        // 🧼 Skip CSS files starting with 'index'
+        if (fileName.endsWith('.css') && fileName.startsWith('index')) {
+          delete bundle[fileName];
+          console.log(`⏩ Skipped index CSS: ${fileName}`);
+        }
+      }
+    }
+  };
+}
+
+const isWatchMode = process.env.VITE_WATCH_MODE === 'true';
+
 export default defineConfig({
   root: 'apps/user-management',
-  base: '/remotes/user-management/',
+  base: isWatchMode ? 'http://localhost:4175/remotes/user-management/' : '/remotes/user-management/',
   server: {
     port: 5175,
     strictPort: true
@@ -14,7 +41,7 @@ export default defineConfig({
     strictPort: true,
   },
   optimizeDeps: {
-    exclude: ['vue', 'vue-router', 'utility']
+    include: []
   },
   plugins: [
     vue(),
@@ -43,19 +70,20 @@ export default defineConfig({
           generate: false,
         },
         '@metronik/devextreme': {
-          generate: false
+          generate: false,
         },
       },
-    })
+    }),
+    filterSharedSourcemaps(['vue', 'vue-router', 'pinia', 'utility', 'shared-components', '@metronik/devextreme']),
   ],
   build: {
     emptyOutDir: true,
     target: 'esnext',
     minify: true,
     sourcemap: true,
-    //outDir: 'dist'
-    outDir: '../../apps/shell/public/remotes/user-management',
+    outDir: 'dist',
     cssCodeSplit: true,
+    assetsDir: '',
     rollupOptions: {
       external: ['virtual:__federation__'],
     },

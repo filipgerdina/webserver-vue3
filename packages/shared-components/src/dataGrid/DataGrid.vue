@@ -68,7 +68,8 @@
   <component :is="actionsHandlers.renderExtraParamsForm()" />
   
 
-  <DynamicFormPopup
+  <DynamicFormPopup 
+    v-if="dynamicFormVisible"
     v-model:visible="dynamicFormVisible"
     :controls="controls"
     :form-data="formData"

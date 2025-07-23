@@ -1,4 +1,4 @@
-import { GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponse, GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponseFields } from '../../../../roles';
+import { GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponse, GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponseFields } from '../../../../../roles';
 import { DataGridConfig } from 'shared-components'
 
 import { NAVIGATION_GROUP_PERMISSIONS_DATA_GRID } from '../../componentIds';

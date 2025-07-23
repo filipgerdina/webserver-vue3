@@ -1,8 +1,8 @@
-import { GetPagePermissionsOfRoleQueryDTO, GetPagePermissionsOfRoleQueryDTOCoreListResponse, GetPagesOfRoleQueryDTOCoreListResponseFields, GetRolesQueryDTOCoreListResponse, GetRolesQueryDTOCoreListResponseFields } from '../../../../roles';
+import { GetPagePermissionsOfRoleQueryDTOCoreListResponse, GetPagesOfRoleQueryDTOCoreListResponseFields } from '../../../../../roles';
 import { DataGridConfig } from 'shared-components'
 
 import { PAGE_PERMISSIONS_DATA_GRID } from '../../componentIds';
-import { GetPagesQueryDTOCoreListResponseFields, pagesDataSource, VisualizationType } from 'utility';
+import { VisualizationType } from 'utility';
 import { pagePermissionsEntity, rolePagesEntity } from "../../rolesManagement.entities";
 
 export const pagePermissionsDataGrid: DataGridConfig<GetPagePermissionsOfRoleQueryDTOCoreListResponse> = {
@@ -12,14 +12,14 @@ export const pagePermissionsDataGrid: DataGridConfig<GetPagePermissionsOfRoleQue
   entity: pagePermissionsEntity,
   columns: [
     { 
-      field: GetPagesQueryDTOCoreListResponseFields.id, 
+      field: GetPagesOfRoleQueryDTOCoreListResponseFields.id, 
       visible: false,
       addedInEditMode: true,
       visibleInEditMode: false,
       visualizationType: VisualizationType.Value11
     },
     { 
-      field: GetPagesQueryDTOCoreListResponseFields.name,
+      field: GetPagesOfRoleQueryDTOCoreListResponseFields.name,
       visible: true,
       addedInEditMode: false,
       visualizationType: VisualizationType.Value11

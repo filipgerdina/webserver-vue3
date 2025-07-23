@@ -27,6 +27,53 @@
         "command": "vite preview",
         "cwd": "apps/shell"
       }
+    },
+    
+"release:patch": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "npm version patch && npm publish",
+        "cwd": "apps/shell"
+      }
+    },
+    "release:minor": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "npm version minor && npm publish",
+        "cwd": "apps/shell"
+      }
+    },
+    "release:major": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "npm version major && npm publish",
+        "cwd": "apps/shell"
+      }
+    },
+    "release:dev": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "npm version prerelease --preid=dev && npm publish -tag dev",
+        "cwd": "apps/shell"
+      }
+    },
+    "updateDependencies": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm update '@gef-modules/*' && powershell -ExecutionPolicy Bypass -File .\\copyPackages.ps1",
+        "cwd": "apps/shell"
+      }
+    },
+    "updateModules": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "powershell -ExecutionPolicy Bypass -File .\\copyModules.ps1",
+        "cwd": "apps/shell"
+      }
     }
   }
 }

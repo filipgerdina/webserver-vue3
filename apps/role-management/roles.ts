@@ -204,30 +204,20 @@ export interface ActionsQueryDTOCoreListResponse {
   messages?: Message[] | null;
 }
 
-export interface DataSourcePost {
-  name?: string | null;
-  urlParams?: any;
-  queryParams?: any;
-  bodyParams?: any;
+export interface AddNavigationGroupPermissionCommandParametersDataFields {
+  /** @format int32 */
+  roleId?: number | null;
+  /** @format int32 */
+  navigationGroupId?: number | null;
 }
 
-export interface EditApplicationSettingsCommandParametersDataFields {
-  useStrongPassword?: boolean | null;
-  /** @format int32 */
-  languageId?: number | null;
-  /** @format int32 */
-  dateTimeFormatId?: number | null;
-  /** @format int32 */
-  decimalSeperatorId?: number | null;
-}
-
-export interface EditApplicationSettingsCommandParametersDataFieldsActionRequestExtraParam {
+export interface AddNavigationGroupPermissionCommandParametersDataFieldsActionRequestExtraParam {
   currentStateCode?: string | null;
   /** @minLength 1 */
   actionCode: string;
   /** @minLength 1 */
   recordTypeCode: string;
-  extraParamsFormValues?: EditApplicationSettingsCommandParametersDataFields;
+  extraParamsFormValues?: AddNavigationGroupPermissionCommandParametersDataFields;
 }
 
 export interface ESign {
@@ -237,145 +227,113 @@ export interface ESign {
   applicationESignId?: number | null;
 }
 
-export interface EditApplicationSettingsCommand {
-  data?: EditApplicationSettingsCommandParametersDataFieldsActionRequestExtraParam;
+export interface AddNavigationGroupPermissionCommand {
+  data?: AddNavigationGroupPermissionCommandParametersDataFieldsActionRequestExtraParam;
   eSign?: ESign;
 }
 
-export type GetApplicationSettingsQuery = object;
+export interface AddPagePermissionCommandParametersDataFields {
+  /** @format int32 */
+  roleId?: number | null;
+  /** @format int32 */
+  pageId?: number | null;
+}
 
-export interface SettingsDTO {
+export interface AddPagePermissionCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: AddPagePermissionCommandParametersDataFields;
+}
+
+export interface AddPagePermissionCommand {
+  data?: AddPagePermissionCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
+}
+
+export interface EditRoleCommandParametersDataFields {
   /** @format int32 */
   id?: number;
-  value?: string | null;
-  displayValue?: string | null;
+  /** @format int32 */
+  defaultPageId?: number;
 }
 
-export interface GetApplicationSettingsQueryDTO {
-  language?: SettingsDTO;
-  dateFormat?: SettingsDTO;
-  decimalSeperator?: SettingsDTO;
+export interface EditRoleCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: EditRoleCommandParametersDataFields;
 }
 
-export interface GetApplicationSettingsQueryDTOCoreResponse {
-  data?: GetApplicationSettingsQueryDTO;
-  messages?: Message[] | null;
+export interface EditRoleCommand {
+  data?: EditRoleCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
 }
 
-export type GetDataSourceQuery = object;
-
-export interface GetDataSourceQueryDTO {
+export interface GetNavigationGroupPermissionsOfRoleQueryDTO {
+  /** @format date-time */
+  utcRecordTimestamp?: string | null;
+  /** @format int32 */
+  userId?: number | null;
+  userInfo?: string | null;
+  /** @format date-time */
+  utcRecordTimestampUpd?: string | null;
+  /** @format int32 */
+  userIdUpd?: number | null;
+  userInfoUpd?: string | null;
   /** @format int32 */
   id?: number;
   name?: string | null;
 }
 
-export interface GetDataSourceQueryDTOCoreListResponse {
-  data?: GetDataSourceQueryDTO[] | null;
+export interface GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponse {
+  data?: GetNavigationGroupPermissionsOfRoleQueryDTO[] | null;
   messages?: Message[] | null;
 }
 
-export type GetDateTimeFormatsQuery = object;
-
-export interface GetDateTimeFormatsQueryDTO {
+export interface GetPagePermissionsOfRoleQueryDTO {
+  /** @format date-time */
+  utcRecordTimestamp?: string | null;
+  /** @format int32 */
+  userId?: number | null;
+  userInfo?: string | null;
+  /** @format date-time */
+  utcRecordTimestampUpd?: string | null;
+  /** @format int32 */
+  userIdUpd?: number | null;
+  userInfoUpd?: string | null;
   /** @format int32 */
   id?: number;
-  value?: string | null;
-  displayName?: string | null;
-}
-
-export interface GetDateTimeFormatsQueryDTOCoreListResponse {
-  data?: GetDateTimeFormatsQueryDTO[] | null;
-  messages?: Message[] | null;
-}
-
-export type GetDecimalSeperatorsQuery = object;
-
-export interface GetDecimalSeperatorsQueryDTO {
-  /** @format int32 */
-  id?: number;
-  value?: string | null;
-  displayName?: string | null;
-}
-
-export interface GetDecimalSeperatorsQueryDTOCoreListResponse {
-  data?: GetDecimalSeperatorsQueryDTO[] | null;
-  messages?: Message[] | null;
-}
-
-export type GetLanguagesQuery = object;
-
-export interface GetLanguagesQueryDTO {
-  /** @format int32 */
-  id?: number;
-  value?: string | null;
-  displayName?: string | null;
-}
-
-export interface GetLanguagesQueryDTOCoreListResponse {
-  data?: GetLanguagesQueryDTO[] | null;
-  messages?: Message[] | null;
-}
-
-export type GetModulesQuery = object;
-
-export interface GetModulesQueryDTO {
-  /** @format int32 */
-  id?: number;
-  moduleName?: string | null;
-  pathToModule?: string | null;
-}
-
-export interface GetModulesQueryDTOCoreListResponse {
-  data?: GetModulesQueryDTO[] | null;
-  messages?: Message[] | null;
-}
-
-export type GetNavigationGroupsQuery = object;
-
-export interface GetNavigationGroupsQueryDTO {
-  /** @format int32 */
-  id?: number;
-  /** @format int32 */
-  parentGroupId?: number | null;
   name?: string | null;
-  iconUrl?: string | null;
 }
 
-export interface GetNavigationGroupsQueryDTOCoreListResponse {
-  data?: GetNavigationGroupsQueryDTO[] | null;
+export interface GetPagePermissionsOfRoleQueryDTOCoreListResponse {
+  data?: GetPagePermissionsOfRoleQueryDTO[] | null;
   messages?: Message[] | null;
 }
 
-export type GetPagesQuery = object;
-
-export interface GetPagesQueryDTO {
+export interface GetPagesOfRoleQueryDTO {
+  /** @format date-time */
+  utcRecordTimestamp?: string | null;
+  /** @format int32 */
+  userId?: number | null;
+  userInfo?: string | null;
+  /** @format date-time */
+  utcRecordTimestampUpd?: string | null;
+  /** @format int32 */
+  userIdUpd?: number | null;
+  userInfoUpd?: string | null;
   /** @format int32 */
   id?: number;
-  path?: string | null;
-  pageComponent?: string | null;
   name?: string | null;
-  iconUrl?: string | null;
-  /** @format int32 */
-  moduleId?: number | null;
-  /** @format int32 */
-  navigationGroupId?: number | null;
 }
 
-export interface GetPagesQueryDTOCoreListResponse {
-  data?: GetPagesQueryDTO[] | null;
-  messages?: Message[] | null;
-}
-
-export interface GetTranslationsQueryDTO {
-  /** @format int32 */
-  id?: number;
-  key?: string | null;
-  value?: string | null;
-}
-
-export interface GetTranslationsQueryDTOCoreListResponse {
-  data?: GetTranslationsQueryDTO[] | null;
+export interface GetPagesOfRoleQueryDTOCoreListResponse {
+  data?: GetPagesOfRoleQueryDTO[] | null;
   messages?: Message[] | null;
 }
 
@@ -385,7 +343,7 @@ export interface RecordParams {
   currentStateCode?: string | null;
 }
 
-export interface UtlActionFormQuery {
+export interface RolesActionFormQuery {
   actionCode?: string | null;
   recordTypeCode?: string | null;
   recordParams?: RecordParams[] | null;
@@ -399,16 +357,52 @@ export interface UtlActionFormQuery {
   formCode: string;
 }
 
-export interface GetUtlActionFormQuery {
-  data?: UtlActionFormQuery;
+export interface GetRolesActionFormQuery {
+  data?: RolesActionFormQuery;
 }
 
-export interface ProcessEndPointActionPost {
+export type GetRolesQuery = object;
+
+export interface GetRolesQueryDTO {
+  /** @format date-time */
+  utcRecordTimestamp?: string | null;
+  /** @format int32 */
+  userId?: number | null;
+  userInfo?: string | null;
+  /** @format date-time */
+  utcRecordTimestampUpd?: string | null;
+  /** @format int32 */
+  userIdUpd?: number | null;
+  userInfoUpd?: string | null;
+  /** @format int32 */
+  id?: number;
   name?: string | null;
-  method?: string | null;
-  urlParams?: any;
-  queryParams?: any;
-  bodyParams?: any;
+  defaultPage?: string | null;
+}
+
+export interface GetRolesQueryDTOCoreListResponse {
+  data?: GetRolesQueryDTO[] | null;
+  messages?: Message[] | null;
+}
+
+export interface NewRoleCommandParametersDataFields {
+  name?: string | null;
+  /** @format int32 */
+  defaultPageId?: number | null;
+}
+
+export interface NewRoleCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: NewRoleCommandParametersDataFields;
+}
+
+export interface NewRoleCommand {
+  data?: NewRoleCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
 }
 
 export interface RecordIDResponseData {
@@ -421,47 +415,75 @@ export interface RecordIDResponse {
   messages?: Message[] | null;
 }
 
+export type RemoveDataSourcePerrmissionCommandParametersDataFields = object;
+
+export interface RemoveDataSourcePerrmissionCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: RemoveDataSourcePerrmissionCommandParametersDataFields;
+}
+
+export interface RemoveNavigationGroupPerrmissionCommand {
+  data?: RemoveDataSourcePerrmissionCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
+}
+
+export type RemovePagePerrmissionCommandParametersDataFields = object;
+
+export interface RemovePagePerrmissionCommandParametersDataFieldsActionRequestExtraParam {
+  currentStateCode?: string | null;
+  /** @minLength 1 */
+  actionCode: string;
+  /** @minLength 1 */
+  recordTypeCode: string;
+  extraParamsFormValues?: RemovePagePerrmissionCommandParametersDataFields;
+}
+
+export interface RemovePagePerrmissionCommand {
+  data?: RemovePagePerrmissionCommandParametersDataFieldsActionRequestExtraParam;
+  eSign?: ESign;
+}
+
 
 // ===== Request DTOs =====
-// Auto-generated request DTOs for Utl
+// Auto-generated request DTOs for Roles
 
-export interface UtlPagesListQuery {
-  getPagesQuery?: object;
+export interface RolesRolesListQuery {
+  getRolesQuery?: object;
 }
 
-export interface UtlModulesListQuery {
-  getModuleQuery?: object;
+export interface RolesRolesCreate2PathParams {
+  id: number;
 }
 
-export interface UtlDataSourcesListQuery {
-  getDataSourcesQuery?: object;
+export interface RolesRolesPagesListQuery {
+  RoleId?: number;
 }
 
-export interface UtlTranslationsListQuery {
-  langId?: number;
+export interface RolesRolesNavigationGroupsListQuery {
+  RoleId?: number;
 }
 
-export interface UtlNavigationGroupsListQuery {
-  getNavigationGroupsQuery?: object;
+export interface RolesPagePermissionsListQuery {
+  RoleId?: number;
 }
 
-export interface UtlApplicationSettingsListQuery {
-  getApplicationSettingsQuery?: object;
+export interface RolesPagePermissionsDeletePathParams {
+  id: number;
 }
 
-export interface UtlLanguagesListQuery {
-  getLanguagesQuery?: object;
+export interface RolesNavigationGroupPermissionsListQuery {
+  RoleId?: number;
 }
 
-export interface UtlDateTimeFormatsListQuery {
-  getDateTimeFormatsQuery?: object;
+export interface RolesNavigationGroupPermissionsDeletePathParams {
+  id: number;
 }
 
-export interface UtlDecimalSeperatorsListQuery {
-  getDecimalSeperatorsQuery?: object;
-}
-
-export interface UtlActionsListQuery {
+export interface RolesActionsListQuery {
   RecordTypeCode?: string;
   RecordId?: number;
   CurrentStateCode?: string;
@@ -471,7 +493,7 @@ export interface UtlActionsListQuery {
 
 
 // ===== Generated Types & Fields =====
-// Auto-generated from Utl.ts for grouped fields and types
+// Auto-generated from Roles.ts for grouped fields and types
 
 export const ActionFormQueryDTOCoreResponseFields = {
   id: {
@@ -1133,82 +1155,43 @@ export const ActionsQueryDTOCoreListResponseFields = {
   },
 } as const;
 
-export const GetApplicationSettingsQueryDTOCoreResponseFields = {
-  language: {
-    _field: "language",
-    _type: "SettingsDTO",
-    _caption: "s:language",
-    _translationField: "data.language",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-      _translationField: "data.language.id",
-    },
-    value: {
-      _field: "value",
-      _type: "string",
-      _caption: "s:value",
-      _translationField: "data.language.value",
-    },
-    displayValue: {
-      _field: "displayValue",
-      _type: "string",
-      _caption: "s:displayValue",
-      _translationField: "data.language.displayValue",
-    },
+export const GetNavigationGroupPermissionsOfRoleQueryDTOCoreListResponseFields = {
+  utcRecordTimestamp: {
+    _field: "utcRecordTimestamp",
+    _type: "string",
+    _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
   },
-  dateFormat: {
-    _field: "dateFormat",
-    _type: "SettingsDTO",
-    _caption: "s:dateFormat",
-    _translationField: "data.dateFormat",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-      _translationField: "data.dateFormat.id",
-    },
-    value: {
-      _field: "value",
-      _type: "string",
-      _caption: "s:value",
-      _translationField: "data.dateFormat.value",
-    },
-    displayValue: {
-      _field: "displayValue",
-      _type: "string",
-      _caption: "s:displayValue",
-      _translationField: "data.dateFormat.displayValue",
-    },
+  userId: {
+    _field: "userId",
+    _type: "number",
+    _caption: "s:userId",
+    _translationField: "data.userId",
   },
-  decimalSeperator: {
-    _field: "decimalSeperator",
-    _type: "SettingsDTO",
-    _caption: "s:decimalSeperator",
-    _translationField: "data.decimalSeperator",
-    id: {
-      _field: "id",
-      _type: "number",
-      _caption: "s:id",
-      _translationField: "data.decimalSeperator.id",
-    },
-    value: {
-      _field: "value",
-      _type: "string",
-      _caption: "s:value",
-      _translationField: "data.decimalSeperator.value",
-    },
-    displayValue: {
-      _field: "displayValue",
-      _type: "string",
-      _caption: "s:displayValue",
-      _translationField: "data.decimalSeperator.displayValue",
-    },
+  userInfo: {
+    _field: "userInfo",
+    _type: "string",
+    _caption: "s:userInfo",
+    _translationField: "data.userInfo",
   },
-} as const;
-
-export const GetDataSourceQueryDTOCoreListResponseFields = {
+  utcRecordTimestampUpd: {
+    _field: "utcRecordTimestampUpd",
+    _type: "string",
+    _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
+  },
+  userIdUpd: {
+    _field: "userIdUpd",
+    _type: "number",
+    _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
+  },
+  userInfoUpd: {
+    _field: "userInfoUpd",
+    _type: "string",
+    _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
+  },
   id: {
     _field: "id",
     _type: "number",
@@ -1223,102 +1206,48 @@ export const GetDataSourceQueryDTOCoreListResponseFields = {
   },
 } as const;
 
-export const GetDateTimeFormatsQueryDTOCoreListResponseFields = {
+export const GetPagePermissionsOfRoleQueryDTOCoreListResponseFields = {
+  utcRecordTimestamp: {
+    _field: "utcRecordTimestamp",
+    _type: "string",
+    _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
+  },
+  userId: {
+    _field: "userId",
+    _type: "number",
+    _caption: "s:userId",
+    _translationField: "data.userId",
+  },
+  userInfo: {
+    _field: "userInfo",
+    _type: "string",
+    _caption: "s:userInfo",
+    _translationField: "data.userInfo",
+  },
+  utcRecordTimestampUpd: {
+    _field: "utcRecordTimestampUpd",
+    _type: "string",
+    _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
+  },
+  userIdUpd: {
+    _field: "userIdUpd",
+    _type: "number",
+    _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
+  },
+  userInfoUpd: {
+    _field: "userInfoUpd",
+    _type: "string",
+    _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
+  },
   id: {
     _field: "id",
     _type: "number",
     _caption: "s:id",
     _translationField: "data.id",
-  },
-  value: {
-    _field: "value",
-    _type: "string",
-    _caption: "s:value",
-    _translationField: "data.value",
-  },
-  displayName: {
-    _field: "displayName",
-    _type: "string",
-    _caption: "s:displayName",
-    _translationField: "data.displayName",
-  },
-} as const;
-
-export const GetDecimalSeperatorsQueryDTOCoreListResponseFields = {
-  id: {
-    _field: "id",
-    _type: "number",
-    _caption: "s:id",
-    _translationField: "data.id",
-  },
-  value: {
-    _field: "value",
-    _type: "string",
-    _caption: "s:value",
-    _translationField: "data.value",
-  },
-  displayName: {
-    _field: "displayName",
-    _type: "string",
-    _caption: "s:displayName",
-    _translationField: "data.displayName",
-  },
-} as const;
-
-export const GetLanguagesQueryDTOCoreListResponseFields = {
-  id: {
-    _field: "id",
-    _type: "number",
-    _caption: "s:id",
-    _translationField: "data.id",
-  },
-  value: {
-    _field: "value",
-    _type: "string",
-    _caption: "s:value",
-    _translationField: "data.value",
-  },
-  displayName: {
-    _field: "displayName",
-    _type: "string",
-    _caption: "s:displayName",
-    _translationField: "data.displayName",
-  },
-} as const;
-
-export const GetModulesQueryDTOCoreListResponseFields = {
-  id: {
-    _field: "id",
-    _type: "number",
-    _caption: "s:id",
-    _translationField: "data.id",
-  },
-  moduleName: {
-    _field: "moduleName",
-    _type: "string",
-    _caption: "s:moduleName",
-    _translationField: "data.moduleName",
-  },
-  pathToModule: {
-    _field: "pathToModule",
-    _type: "string",
-    _caption: "s:pathToModule",
-    _translationField: "data.pathToModule",
-  },
-} as const;
-
-export const GetNavigationGroupsQueryDTOCoreListResponseFields = {
-  id: {
-    _field: "id",
-    _type: "number",
-    _caption: "s:id",
-    _translationField: "data.id",
-  },
-  parentGroupId: {
-    _field: "parentGroupId",
-    _type: "number",
-    _caption: "s:parentGroupId",
-    _translationField: "data.parentGroupId",
   },
   name: {
     _field: "name",
@@ -1326,32 +1255,50 @@ export const GetNavigationGroupsQueryDTOCoreListResponseFields = {
     _caption: "s:name",
     _translationField: "data.name",
   },
-  iconUrl: {
-    _field: "iconUrl",
-    _type: "string",
-    _caption: "s:iconUrl",
-    _translationField: "data.iconUrl",
-  },
 } as const;
 
-export const GetPagesQueryDTOCoreListResponseFields = {
+export const GetPagesOfRoleQueryDTOCoreListResponseFields = {
+  utcRecordTimestamp: {
+    _field: "utcRecordTimestamp",
+    _type: "string",
+    _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
+  },
+  userId: {
+    _field: "userId",
+    _type: "number",
+    _caption: "s:userId",
+    _translationField: "data.userId",
+  },
+  userInfo: {
+    _field: "userInfo",
+    _type: "string",
+    _caption: "s:userInfo",
+    _translationField: "data.userInfo",
+  },
+  utcRecordTimestampUpd: {
+    _field: "utcRecordTimestampUpd",
+    _type: "string",
+    _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
+  },
+  userIdUpd: {
+    _field: "userIdUpd",
+    _type: "number",
+    _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
+  },
+  userInfoUpd: {
+    _field: "userInfoUpd",
+    _type: "string",
+    _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
+  },
   id: {
     _field: "id",
     _type: "number",
     _caption: "s:id",
     _translationField: "data.id",
-  },
-  path: {
-    _field: "path",
-    _type: "string",
-    _caption: "s:path",
-    _translationField: "data.path",
-  },
-  pageComponent: {
-    _field: "pageComponent",
-    _type: "string",
-    _caption: "s:pageComponent",
-    _translationField: "data.pageComponent",
   },
   name: {
     _field: "name",
@@ -1359,44 +1306,62 @@ export const GetPagesQueryDTOCoreListResponseFields = {
     _caption: "s:name",
     _translationField: "data.name",
   },
-  iconUrl: {
-    _field: "iconUrl",
-    _type: "string",
-    _caption: "s:iconUrl",
-    _translationField: "data.iconUrl",
-  },
-  moduleId: {
-    _field: "moduleId",
-    _type: "number",
-    _caption: "s:moduleId",
-    _translationField: "data.moduleId",
-  },
-  navigationGroupId: {
-    _field: "navigationGroupId",
-    _type: "number",
-    _caption: "s:navigationGroupId",
-    _translationField: "data.navigationGroupId",
-  },
 } as const;
 
-export const GetTranslationsQueryDTOCoreListResponseFields = {
+export const GetRolesQueryDTOCoreListResponseFields = {
+  utcRecordTimestamp: {
+    _field: "utcRecordTimestamp",
+    _type: "string",
+    _caption: "s:utcRecordTimestamp",
+    _translationField: "data.utcRecordTimestamp",
+  },
+  userId: {
+    _field: "userId",
+    _type: "number",
+    _caption: "s:userId",
+    _translationField: "data.userId",
+  },
+  userInfo: {
+    _field: "userInfo",
+    _type: "string",
+    _caption: "s:userInfo",
+    _translationField: "data.userInfo",
+  },
+  utcRecordTimestampUpd: {
+    _field: "utcRecordTimestampUpd",
+    _type: "string",
+    _caption: "s:utcRecordTimestampUpd",
+    _translationField: "data.utcRecordTimestampUpd",
+  },
+  userIdUpd: {
+    _field: "userIdUpd",
+    _type: "number",
+    _caption: "s:userIdUpd",
+    _translationField: "data.userIdUpd",
+  },
+  userInfoUpd: {
+    _field: "userInfoUpd",
+    _type: "string",
+    _caption: "s:userInfoUpd",
+    _translationField: "data.userInfoUpd",
+  },
   id: {
     _field: "id",
     _type: "number",
     _caption: "s:id",
     _translationField: "data.id",
   },
-  key: {
-    _field: "key",
+  name: {
+    _field: "name",
     _type: "string",
-    _caption: "s:key",
-    _translationField: "data.key",
+    _caption: "s:name",
+    _translationField: "data.name",
   },
-  value: {
-    _field: "value",
+  defaultPage: {
+    _field: "defaultPage",
     _type: "string",
-    _caption: "s:value",
-    _translationField: "data.value",
+    _caption: "s:defaultPage",
+    _translationField: "data.defaultPage",
   },
 } as const;
 

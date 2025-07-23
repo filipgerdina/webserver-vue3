@@ -2,12 +2,10 @@ import { DataSource, Module } from "utility"
 
 export const module = new Module({
     moduleActionsDS: new DataSource({
-        name: 'userModuleActions',
-        translatableResponseFields: ["data.actionName"]
+        name: 'userModuleActions'
     }),
     moduleActionFormsDS: new DataSource({
-        name: 'userModuleActionForms',
-        translatableResponseFields: ["data.controls.properties.values.displayValue", "data.controls.properties.values.name", "data.title", "data.controls.description"]
+        name: 'userModuleActionForms'
     }),
 })
 

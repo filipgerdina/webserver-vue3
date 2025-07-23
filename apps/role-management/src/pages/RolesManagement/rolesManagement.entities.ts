@@ -3,7 +3,7 @@ import { PagePermissionsEntity } from '../../entities/pagePermissions.entity';
 import { RolesEntity } from '../../entities/role.entity'
 import { RoleNavigationGroupsEntity } from '../../entities/roleNavigationGroups.entity';
 import { RolePagesEntity } from '../../entities/rolePages.entity';
-import { RolesRolesNavigationGroupsListQuery, RolesPagePermissionsListQuery, RolesRolesPagesListQuery } from '../../roles';
+import { RolesRolesNavigationGroupsListQuery, RolesPagePermissionsListQuery, RolesRolesPagesListQuery } from '../../../roles';
 import { useRolesManagementStore } from './rolesManagement.store';
 
 export const rolesEntity = RolesEntity;

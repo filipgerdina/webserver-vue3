@@ -1,21 +1,26 @@
 {
-  "name": "user-management",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@gef-modules/user-management",
+  "version": "1.0.4-dev.11",
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
-  "dependencies": {
+  "files": [
+    "*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
     "@metronik/devextreme": "workspace:*",
     "lodash": "^4.17.21",
     "pinia": "3.0.2",
     "shared-components": "workspace:*",
+    "@gef-modules/shell": "dev",
+    "@gef-modules/role-management": "dev",
     "utility": "workspace:*",
-    "vue": "3.4.0"
-  },
-  "devDependencies": {
-    "@metronik/devextreme": "workspace:*",
+    "vue": "3.4.0",
     "@nx/vite": "21.2.1",
     "@types/lodash": "^4.17.20",
     "@types/node": "^24.0.2",

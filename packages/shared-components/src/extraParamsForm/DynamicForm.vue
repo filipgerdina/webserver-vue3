@@ -42,22 +42,6 @@ const emit = defineEmits<{
 
 const formRef = ref();
 
-// const normalizedControls = computed(() => {
-//   if (props.controls && props.controls.length) return props.controls;
-//   if (props.columns && props.columns.length) {
-//     return props.columns.map(col => ({
-//       dataField: col.dataField,
-//       label: col.label,
-//       required: col.required,
-//       visible: col.visible !== false,
-//       editorType: col.editorType,
-//       description: col.description,
-//       editorOptions: col.editorOptions ?? {},
-//     }));
-//   }
-//   return [];
-// });
-
 function handleSubmit() {
   const formInstance = formRef.value?.instance;
   if (!formInstance) return;
