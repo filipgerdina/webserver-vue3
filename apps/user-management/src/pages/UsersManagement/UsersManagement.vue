@@ -2,7 +2,7 @@
   <div style="width: 100%;">
     <UsersDataGrid/>
     
-    <UserRolesDataGrid v-if="settingsService.activeModules.value.map(m => m.moduleName).includes('roleManagement') && pageStore.usersDataGridStore.GetDataGridView()?.selectedRowKeys?.length"/>
+    <UserRolesDataGrid v-if="settingsService.activeModules.value.map(m => m.moduleName).includes('role-management') && pageStore.usersDataGridStore.GetDataGridView()?.selectedRowKeys?.length"/>
   </div>
 </template>
 

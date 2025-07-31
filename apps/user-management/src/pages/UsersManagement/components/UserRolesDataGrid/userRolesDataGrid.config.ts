@@ -5,7 +5,7 @@ import { userRolesEntity } from '../../entities';
 import { USER_ROLES_DATA_GRID } from '../../componentIds';
 import { loadRemoteModule, settingsService, VisualizationType } from 'utility';
 
-let module = settingsService.activeModules.value.find(m => m.moduleName ==  "roleManagement");
+let module = settingsService.activeModules.value.find(m => m.moduleName ==  "role-management");
 if (!module) {
   throw new Error("Module is undefined or null");
 }
