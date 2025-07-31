@@ -2,7 +2,7 @@
 import Navbar from '../components/Navbar/Navbar.vue'
 import { RemoteModuleComponentLoader, GetImageUrl, settingsService } from 'utility'
 
-const userModule = settingsService.activeModules.value.find(m => m.moduleName == "userManagement")
+const userModule = settingsService.activeModules.value.find(m => m.moduleName == "user-management")
 </script>
 
 
